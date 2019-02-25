@@ -6,17 +6,17 @@ This endpoint getting the data of a user (admin authentication token required)
 Parameter | Value | Data Type | Description | Parameter Type
 ---|---|---|---|---
 token | Required | Token | Proves that the request is made by an admin | Header
-username | Required | String | The username of the user to be fetched | Body
+userID | Required | String | The userID of the user to be fetched | Body
 
 e.g.
 Header:
 ```http request
-token: '{"message":{"username":"admin","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
+token: '{"message":{"userID":"3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
 ```
 Body:
 ```json5
 {
-  username: "admin"
+  userID: "3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF"
 }
 ```
 
@@ -26,7 +26,10 @@ Body:
 ##### Response schema
 ```
 User {
-  username (String, required): The username repeated
+  userID (String, required): The id of the user
+  username (String, required): The username
+  displayName (String, required): The user's displayName
+  displayIcon (String, required): The URL to the displayIcon
   password (String, required): The hashed username
   salt (String, required): The hashing salt used
   isAdmin (boolean, required): If the user is an admin
@@ -35,8 +38,11 @@ User {
 e.g.
 ```json5
 {
+  userID: "3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF",
   username: "admin",
   salt: "high salt levels",
+  displayName: "Adjective None",
+  displayIcon: "icons/icon1.png",
   password: "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
   isAdmin: true
 }
@@ -64,7 +70,7 @@ Error {
 e.g.
 ```json5
 {
-  message: "No username provided"
+  message: "No userID provided"
 }
 ```
 #### `Not Found` 404 - No such user exists
@@ -84,7 +90,7 @@ e.g.
 ---
  
 ## `PUT /users`
-This endpoint is for creating new users (admin authentication token required)
+This endpoint is for creating new users (admin authentication token required).  The user's displayName, displayIcon and salt are generated automatically.
 
 Parameter | Value | Data Type | Description | Parameter Type
 ---|---|---|---|---
@@ -96,13 +102,14 @@ isAdmin | Optional | Boolean | If said user is to be an admin | Body
 e.g.
 Header:
 ```http request
-token: '{"message":{"username":"admin","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
+token: '{"message":{"userID":"3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
 ```
 Body:
 ```json5
 {
   username: "admin",
-  isAdmin: false  
+  password: "plain text password",
+  isAdmin: false
 }
 ```
 
@@ -155,17 +162,17 @@ This endpoint is for deleting new users (admin authentication token required).
 Parameter | Value | Data Type | Description | Parameter Type
 ---|---|---|---|---
 token | Required | Token | Proves that the request is made by an admin | Header
-username | Required | String | The username of the user to be deleted | Body
+userID | Required | String | The userID of the user to be deleted | Body
 
 e.g.
 Header:
 ```http request
-token: '{"message":{"username":"admin","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
+token: '{"message":{"userID":"3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
 ```
 Body:
 ```json5
 {
-  username: "somename"
+  userID: "3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF"
 }
 ```
 
@@ -179,8 +186,8 @@ hash of the message and the server's private key.  The signature proves that the
 
 Parameter | Value | Data Type | Description | Parameter Type
 ---|---|---|---|---
-Username | Required | String | The username | Body
-Password | Required | String | The password | Body
+username | Required | String | The username | Body
+password | Required | String | The password | Body
 
 e.g.
 
@@ -194,7 +201,7 @@ Token {
 }
 
 Message {
-  username (String, required): The username that the token is for
+  userID (String, required): The userID that the token is for
   isAdmin (Boolean, required): Whether the token grants admin privilege
   validUntil (Int, required): The expiry date of the token (unix timestamp)
 }
@@ -203,7 +210,7 @@ e.g.
 ```json5
 {
   message: {
-      username: "username",
+      userID: "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
       isAdmin: true,
       validUntil: 1551040494,
   },
