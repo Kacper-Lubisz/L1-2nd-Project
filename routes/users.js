@@ -40,6 +40,24 @@ function deleteUserByUsername(username) {
     return false;
 }
 
+/**
+ * Adds a new user to the database.  **This function doesn't check if a user with the same username exists**
+ * @param username {String} The username of the new user
+ * @param salt {String} The salt used for hashing the password
+ * @param hashedPassword {String} The hashed password
+ * @param isAdmin {Boolean} If the user is an admin
+ */
+function addUser(username, salt, hashedPassword, isAdmin) {
+
+    data.users.push({
+        username: username,
+        salt: salt,
+        password: hashedPassword,
+        isAdmin: isAdmin
+    });
+
+}
+
 // `GET` for getting user data (authentication token required).
 router.get('/:username', function (req, res) {
 
@@ -71,7 +89,48 @@ router.get('/:username', function (req, res) {
 // `PUT` for adding users and changing properties (this is only to be accessed by the administrator).
 router.put('/', function (req, res) {
     const auth = authentication.authenticateRequest(req);
-    // TODO
+
+    if (req.body.username === undefined) {
+        res.status(400);
+        res.end(JSON.stringify({message: "Username not provided"}));
+    }
+    if (auth === null) {
+        res.status(403);
+        res.end(JSON.stringify({message: "No authentication token provided"}));
+    } else if (auth.username !== req.body.username && !auth.isAdmin) { // insufficient permissions, must be admin
+        res.status(403);
+        res.end(JSON.stringify({message: "Admin permission needed to access other user's data"}));
+    } else {
+
+        const user = getUserByUsername(req.body.username);
+
+        if (user === undefined) { // adding a new user
+
+            if (req.body.password === undefined) {
+                res.status(400);
+                res.end(JSON.stringify({message: "Password not provided"}));
+            } else if (req.body.isAdmin === undefined) {
+                res.status(400);
+                res.end(JSON.stringify({message: "isAdmin not provided"}));
+            } else { // create a new user
+
+                const salt = [...Array(64).keys()] // array of 0 through to 63 (inc)
+                    .map((n) => (Math.random() * 16).toString(16))
+                    .reduce((acc, cur) => acc + cur);
+                // generate a 256 bit hex encoded string
+
+                const hash = crypto.createHash("sha256");
+                hash.update(req.body.password, "utf8");
+                hash.update(salt, "utf8");
+                const hashedPassword = hash.digest("hex");
+
+                addUser(req.body.username, salt, req.body.password, req.body.isAdmin);
+
+            }
+        } else { // updating an existing user (salt can't be changed)
+            //TODO
+        }
+    }
 });
 
 // `DELETE` for deleting users(this is only to be accessed by the administrator).
