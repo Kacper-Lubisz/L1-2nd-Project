@@ -74,13 +74,14 @@ This relation represents a piece of work.  It links together a user and their wo
 the path to the work in relative to the path of the folder containing all the work for that assignment.
 
 ### Assignment
-Assignment(__assignmentID__, title, workUrl, timeCreated)
+Assignment(__assignmentID__, title, workUrl, startTime)
 
 This relation represents an assignment, this is because the system should allow for the concurrent peer review of
 several assignments at the same time.  The title is simply the identifier for the assignment.  workUrl is the path to 
 the folder containing all of the work for this project relative to the root of the server.  When a new assignment is 
 created by the admin all of the work will be moved into this folder.  This path will be generated automatically based on
-the assignmentID.  The time created is the unix timestamp of the day that the assignment was created.
+the assignmentID.  The startTime is the time at which the marking was started, once the marking starts, the assignment 
+can no longer be edited.  The started value will be undefined until the marking starts.
 
 ### Marking Category
 MarkingCategory(__categoryID__, __assignmentID__, title, weight)
