@@ -1,4 +1,4 @@
-const config = require("config/config.js");
+const config = require("./config/config");
 
 /**
  * The authentication message from the server
