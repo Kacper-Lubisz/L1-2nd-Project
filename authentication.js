@@ -20,6 +20,8 @@ function authenticateRequest(request) {
         return null;
     } else {
 
+        console.log(">"+config.privateKey+"<");
+
         const hash = crypto.createHash("sha256"); // find the correct signature
         hash.update(JSON.stringify(token.message), "utf8");
         hash.update(config.privateKey, "utf8");

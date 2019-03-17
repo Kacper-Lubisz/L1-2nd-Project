@@ -58,7 +58,8 @@ simple for the purpose of making the project closer to a real deployable system.
 ### User
 User(__userID__, loginName, displayName, displayIconURL, salt, hashedPassword)
 
-This relation stores the information about a user.  UserID should be a random string to prevent the posibility of sequentially scraping through all the data.  The loginName is different to the display name for the purposes of 
+This relation stores the information about a user.  All IDs should be a random string to prevent the possibility of 
+sequentially scraping through all the data.  The loginName is different to the display name for the purposes of 
 preserving the anonymity of users.  The display name and display icon will be generated automatically when the user is 
 created.  The password is stored using cryptography to make it so that the original password can't be recovered even if
 a data breach occurs.  The password has the salt concatenated to it and is then hashed.  The purpose of the hash is to 
@@ -73,13 +74,13 @@ This relation represents a piece of work.  It links together a user and their wo
 the path to the work in relative to the path of the folder containing all the work for that assignment.
 
 ### Assignment
-Assignment(__assignmentID__, title, workUrl)
+Assignment(__assignmentID__, title, workUrl, timeCreated)
 
 This relation represents an assignment, this is because the system should allow for the concurrent peer review of
 several assignments at the same time.  The title is simply the identifier for the assignment.  workUrl is the path to 
 the folder containing all of the work for this project relative to the root of the server.  When a new assignment is 
 created by the admin all of the work will be moved into this folder.  This path will be generated automatically based on
-the assignmentID.
+the assignmentID.  The time created is the unix timestamp of the day that the assignment was created.
 
 ### Marking Category
 MarkingCategory(__categoryID__, __assignmentID__, title, weight)
@@ -103,19 +104,21 @@ it to be weighted within the category.  The subtitle is simply the name of the c
 information to guide the reviewer as to what they should focus on when evaluating this criteria.
 
 ### Review
-Review(__assignmentID__, __userID__, __reviewerID__, comment, isCompleted)
+Review(__assignmentID__, __userID__, __reviewerID__, comment, timeCompleted)
 
 This relation represents a review that would have been given to a piece of work.  Most of the review data will be stored
 in the Grade relation.  This relation only really stores a general comment to help guide the recipient of the review.
-It also contains comments that don't belong to any particular category.  The completion of the review is also stored so
-that it doesn't need to be evaluated each time it is accessed.
+It also contains comments that don't belong to any particular category.  The completion of the review is stored in the 
+form of the timestamp of when it was completed.  This time stamp is undefined to represent the fact that it's not 
+complete.
 
 ### Grade
 Grade(__assignmentID__, __ownerID__, __reviewerID__, __criteriaID__, mark, comment)
 
-This relation stores a particular rating given for a category.  The composite primary key identifies the piece of work(__assignmentID__, __ownerID__) and then what the grade is for and who left it (__reviewerID__, __criteriaID__).
-mark is a number form 0 to 1 representing the scale
-from 0% to 100%.  When this tuple is created the mark calculated based on the rating that is given on this scale: 
+This relation stores a particular rating given for a category.  The composite primary key identifies the piece of work
+(__assignmentID__, __ownerID__) and then what the grade is for and who left it (__reviewerID__, __criteriaID__).  The 
+mark is a number form 0 to 1 representing the scale from 0% to 100%.  When this tuple is created the mark calculated 
+based on the rating that is given on this scale: 
 * No Attempt(0%)
 * Unacceptable(20%)
 * Passable(40%)
@@ -128,12 +131,13 @@ The comment is used to give a justification for why the mark was given.
 ### Critique 
 Critique(__assignmentID__, __ownerID__, __criticID__, __criteriaID__, proposedMark, comment, state)
 
-This relation stores a criticism of a review.  The first two keys (of the primary key) identify a piece of work, the next identifies the user who left the critique and then the final identifies the criteria of their review that is being criticiesed.
- The proposed mark is the mark 
-that the criticism believes should be given.  it is notable that a critique will be stored even if it agrees with the
-original review.  The comment is used to explain why the proposed mark differed from the one given in the original 
-review and should in general explain why the critic believes that the original review was bad.  The state is used to 
-precedent what stage in the life cycle of a critique it is. This is the key: 
+This relation stores a criticism of a review.  The first two keys (of the primary key) identify a piece of work, the 
+next identifies the user who left the critique and then the final identifies the criteria of their review that is being 
+criticised. The proposed mark is the mark that the criticism believes should be given.  it is notable that a critique 
+will be stored even if it agrees with the original review.  The comment is used to explain why the proposed mark 
+differed from the one given in the original review and should in general explain why the critic believes that the 
+original review was bad.  The state is used to precedent what stage in the life cycle of a critique it is.
+This is the key: 
 * 0 - Agreeing (no action needed)
 * 1 - Submitted (disagreeing with original, not responded to, action needed)
 * 2 - Accepted (the author of the original review has accepted the correction)
@@ -144,7 +148,7 @@ precedent what stage in the life cycle of a critique it is. This is the key:
 
 ### Endpoint Overview
 
-API documentation can be found in apidocs.md
+A complete API documentation can be found in apidocs.md, this is an overview
 
 This is the list of all the endpoints:
 * `/users` for managing the users

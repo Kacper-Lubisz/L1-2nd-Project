@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 // TODO load some real content
 
             } else {
-                $("#content").load("/login.html");
+                $("#content").load("/login.html", function () {
+                    console.log("The load has finished")
+                });
                 $("#message").html("Your login has expired");
             }
         }

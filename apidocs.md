@@ -89,15 +89,16 @@ e.g.
 
 ---
  
-## `PUT /users`
-This endpoint is for creating new users (admin authentication token required).  The user's displayName, displayIcon and salt are generated automatically.
+## `PATCH /users`
+This endpoint is for changing information about an already existing user. Password, Display Name, Display Icon and 
+isAdmin can be changed.
 
 Parameter | Value | Data Type | Description | Parameter Type
 ---|---|---|---|---
 token | Required | Token | Proves that the request is made by an admin | Header
-username | Required | String | The new users username | Body
-password | Optional | String | The new users password | Body
-isAdmin | Optional | Boolean | If said user is to be an admin | Body
+userID | Required | String | The users id | Body
+password | Optional | String | The new password password | Body
+isAdmin | Optional | Boolean | If user is to be an admin | Body
 
 e.g.
 Header:
@@ -118,14 +119,19 @@ Body:
 ##### Response schema
 ```
 Update {
-  newUser (Boolean, required) if the user is new or updated
-  properties (String[], required) list of properties that were updated (or added) 
+  user (User, required) The user data after the update 
 }
 ```
 e.g.
 ```json5
 {
-  message: "Invalid authentication token"
+  userID: "3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF",
+  username: "admin",
+  salt: "high salt levels",
+  displayName: "Adjective None",
+  displayIcon: "icons/icon1.png",
+  password: "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+  isAdmin: true
 }
 ```
 #### `Forbidden` 403 - Invalid authentication token / Insufficient Permissions
@@ -152,6 +158,90 @@ e.g.
 ```json5
 {
   message: "Missing password argument (needed for creating a new user)"
+}
+```
+## `PUT /users`
+This endpoint is for creating new users (admin authentication token required).  The user's id, displayName, displayIcon 
+and salt are generated automatically.
+
+Parameter | Value | Data Type | Description | Parameter Type
+---|---|---|---|---
+token | Required | Token | Proves that the request is made by an admin | Header
+username | Required | String | The new users username | Body
+password | Required | String | The new users password | Body
+isAdmin | Optional | Boolean | If user is to be an admin | Body
+
+e.g.
+Header:
+```http request
+token: '{"message":{"userID":"3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
+```
+Body:
+```json5
+{
+  username: "admin",
+  password: "plain text password",
+  isAdmin: false
+}
+```
+
+### Responses
+#### `OK` 200 - Successful Added
+##### Response schema
+```
+Update {
+  user (User, required) the new user that was added 
+}
+```
+e.g.
+```json5
+{
+  userID: "3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF",
+  username: "admin",
+  salt: "high salt levels",
+  displayName: "Adjective None",
+  displayIcon: "icons/icon1.png",
+  password: "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+  isAdmin: true
+}
+```
+#### `Forbidden` 403 - Invalid authentication token / Insufficient Permissions
+##### Response schema
+```
+Error {
+  message (String, required): String explanation of invalid authentication token
+}
+```
+e.g.
+```json5
+{
+  message: "Invalid authentication token"
+}
+```
+### `Bad Request` 400 - Missing Parameter
+##### Response schema
+```
+Error {
+  message (String, required): String explanation
+}
+```
+e.g.
+```json5
+{
+  message: "Missing password argument (needed for creating a new user)"
+}
+```
+### `Conflict` 409 - User with that username already exists
+##### Response schema
+```
+Error {
+  message (String, required): String explanation
+}
+```
+e.g.
+```json5
+{
+  message: "User with that username already exists"
 }
 ```
 
@@ -198,6 +288,7 @@ e.g.
 Token {
   message (Message, required): The token message
   signature (String, required): The token signature
+  user: (User, required): The userdata for the logged in user
 }
 
 Message {
@@ -206,6 +297,7 @@ Message {
   validUntil (Int, required): The expiry date of the token (unix timestamp)
 }
 ```
+The User type is defined above.
 e.g.
 ```json5
 {

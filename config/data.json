@@ -1,0 +1,95 @@
+{
+  "production": {
+    "users": [],
+    "work": [],
+    "assignments": [],
+    "markingCategories": [],
+    "markingCriteria": [],
+    "reviews": [],
+    "grades": [],
+    "critiques": []
+  },
+  "test": {
+    "users": [
+      {
+        "userID": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+        "username": "admin",
+        "displayName": "Adjective Noun",
+        "displayIcon": "icons/311B92.png",
+        "salt": "high salt levels",
+        "password": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+        "isAdmin": true
+      },
+      {
+        "userID": "83566c4039f629d0f95b2e3a9e4306fa15873c898a76117a21a667950b49ba8e",
+        "username": "user",
+        "displayName": "Another Name",
+        "displayIcon": "icons/FF6F00.png",
+        "salt": "different salt to the other one",
+        "password": "9e22a6931b7af0c0d82d6cca0b4e7bdd8d3036b1aa6133ce5fb9c709c7a3f212",
+        "isAdmin": false
+      }
+    ],
+    "work": [
+      {
+        "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
+        "userID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+        "localUrl": "/work/assignment_0/651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b"
+      }
+    ],
+    "assignments": [
+      {
+        "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
+        "title": "Programming Summative",
+        "workUrl": "/work/assignment_0"
+      }
+    ],
+    "markingCategories": [
+      {
+        "categoryID": "c8394d5b9c00e3a5faca904016cead7864e6e6f02e5a42c99152bb50dfb4a268",
+        "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
+        "title": "Code Quality",
+        "weight": 1
+      }
+    ],
+    "markingCriteria": [
+      {
+        "criteriaID": "04a7693c82490b9d79e528f4499eaaf3b16ae1e095d082b2319099ecd3e8de97",
+        "categoryID": "c8394d5b9c00e3a5faca904016cead7864e6e6f02e5a42c99152bb50dfb4a268",
+        "weight": 1,
+        "subtitle": "ESLint",
+        "description": "This criteria is about how well the code does in ESLint."
+      }
+    ],
+    "reviews": [
+      {
+        "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
+        "userID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+        "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+        "comment": "generally poor, do more work",
+        "isComplete": true
+      }
+    ],
+    "grades": [
+      {
+        "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
+        "ownerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+        "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+        "criteriaID": "04a7693c82490b9d79e528f4499eaaf3b16ae1e095d082b2319099ecd3e8de97",
+        "mark": 0.20,
+        "comment": "legit 20 serious warnings and 100 minor ones, no effort"
+      }
+    ],
+    "critiques": [
+      {
+        "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
+        "ownerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+        "criticID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+        "criteriaID": "04a7693c82490b9d79e528f4499eaaf3b16ae1e095d082b2319099ecd3e8de97",
+        "proposedMark": 0.0,
+        "comment": "with all those warnings he deserves nothing, no effort!",
+        "state": 1
+      }
+    ]
+  }
+}
