@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head><title>DurPeer</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="icon" href="images/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.1/handlebars.min.js"></script>
+    <script src="javascripts/index.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" id="homeIcon">
+            <img class="d-inline-block align-top"
+                 src="/images/logo.png" height="30"
+                 alt="Profile Picture">
+        </a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="nav-link" id="homeText" href="javascript:">Home</a></li>
+            <li class="nav-item"><a class="nav-link" id="myReviews" href="javascript:">My Reviews</a></li>
+            <li class="nav-item"><a class="nav-link" id="myCritiques" href="javascript:">My Critiques</a></li>
+        </ul>
+        <div style="display:none;'">
+            <a class="navbar-text mr-2" id="username" href="javascript:"></a>
+            <a class="navbar-brand" id="userIcon" href="#"><img height="30" alt="Profile Picture" src=""></a>
+        </div>
+        <form class="form-inline">
+            <button class="btn btn-outline-success" type="button">Log in</button>
+        </form>
+    </div>
+</nav>
+<div class="container" id="content">
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border m-5" role="status"><span class="sr-only">Loading...</span></div>
+    </div>
+</div>
+</body>
+</html>

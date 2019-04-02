@@ -50,6 +50,14 @@ Features:
     * Easy to specify the body of work that needs to be reviewed
     * The administrator should be able to monitor how the reviewing process is going
 
+## Screen Management System
+
+Instead of using a framework I want to make my own implementation of a screen management system.  The main goal being 
+the abstraction of the screen replacement process.
+
+The system will have two types of object.  Views and the view manager (singleton).  Views will encapsulate the behaviour
+of each screen, while the view manager will encapsulate the behaviours needed to instantiate and change views.
+
 ## ER Modeling
 I will model all the entities in my system as though it were an database, since if this system were to be deployed it 
 would need to.  It would be much easier to store this data in a simple json file format, but I will store it in tables
@@ -130,20 +138,25 @@ based on the rating that is given on this scale:
 The comment is used to give a justification for why the mark was given.
 
 ### Critique 
-Critique(__assignmentID__, __ownerID__, __criticID__, __criteriaID__, proposedMark, comment, state)
+Critique(__assignmentID__, __ownerID__, __reviewerID__, __criticID__, comment, isComplete)
 
-This relation stores a criticism of a review.  The first two keys (of the primary key) identify a piece of work, the 
-next identifies the user who left the critique and then the final identifies the criteria of their review that is being 
-criticised. The proposed mark is the mark that the criticism believes should be given.  it is notable that a critique 
-will be stored even if it agrees with the original review.  The comment is used to explain why the proposed mark 
-differed from the one given in the original review and should in general explain why the critic believes that the 
-original review was bad.  The state is used to precedent what stage in the life cycle of a critique it is.
-This is the key: 
-* 0 - Agreeing (no action needed)
-* 1 - Submitted (disagreeing with original, not responded to, action needed)
-* 2 - Accepted (the author of the original review has accepted the correction)
-* 3 - Rejected (the author of the original review has rejected the correction)
+This relation only stores a critique that has been started and the general comment that is left on it when it is 
+complete. The first two keys (of the primary key) identify a piece of work, the next identifies the review that is being
+critiqued and then the last key identifies the particular criticism of the review.  The comment is general feedback of
+a review.  The completeness states whether all the grades that are to be to be disputed have been.
 
+### CritiquedGrade 
+CritiquedGrade(__assignmentID__, __ownerID__, __reviewerID__, __criticID__, __criteriaID__, proposedMark, comment, state)
+
+The first 4 keys identify the critique (linking a piece of work, review and a critic).  The proposed mark is the mark 
+that the critic believes should replace the grade given in the original review. The comment is used to explain why the 
+proposed mark differed from the one given in the original review and should in general explain why the critic believes 
+that the original review was incorrect.  The state is used to store what stage in which the critique is.
+This is the key:
+* 0 - Pending (disagreeing with original, not responded to, action needed)
+* 1 - Accepted (the author of the original review has accepted the correction)
+* 2 - Rejected (the author of the original review has rejected the correction)
+If a critic agrees with a mark, a critique grade will not be stored.
 
 ## API documentation
 
@@ -164,26 +177,15 @@ This is the list of all the endpoints:
     * `PUT` for creating a new assignment, this also creates user data and marking categories and criteria.  This can be
      done with multiple calls to the API to allow for saving progress (requires admin authentication).
 
-* `/notifications` this is for finding any actions that the user needs to take action on
-    * `GET` computes and returns a list of things that needs attention (critiques that haven't been addressed) for that 
-    particular user (authentication token required).
-
-* `/reviews` This endpoint is for creating and fetching reviews
-    * `GET` this has different uses 
-        * returns all the reviews that a user has started (authentication token required, admin if not for self)
+* `/reviews` This endpoint is for creating, fetching and updating: reviews and critiques
+    * `GET` this has different uses (different ways of selecting a review/critiques based on user and context)
+        * returns all the reviews/critiques that a user has started (authentication token required, admin if not for self)
         * returns all the reviews on a piece of work (authentication token required, admin if not yours, admin if the 
         review isn't submitted)
+        * returns all the critiques on a review (authentication token required, admin if not yours, admin if the 
+                critique isn't submitted)
         * returns the contents of a particular review (authentication token required, admin if not your review or of 
         your work)
-    * `POST` allows a user to start working on a new review (authentication token required)
+    * `POST` allows a user to start working on a new review or critique (creates an empty one) 
+        (authentication token required)
     * `PUT` updates a review (authentication token required, review must be the users)
-    
-* `/critiques` This endpoint is for creating and fetching critiques
-    * `GET` this has different uses 
-        * returns all the critiques that a user has started (authentication token required, admin if not for self)
-        * returns all the critiques of a review (authentication token required, admin if not your review, admin if 
-        critique isn't submitted)
-        * returns the contents of a particular critique (authentication token required, admin if not your critique or of 
-        your review)
-    * `POST` allows a user to start working on a new critique (authentication token required)
-    * `PUT` updates a critique (authentication token required, review must be the users)
