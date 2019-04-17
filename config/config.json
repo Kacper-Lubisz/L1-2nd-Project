@@ -4,8 +4,7 @@
     "appTitle": "DurPeer",
     "appIcon": "/images/logo.png",
     "port": 3000,
-    "authenticationTokenDuration": 86400000,
-    "privateKey": "6a2da20943931e9834fc12cfe5bb47bbd9ae43489a30726962b576f4e3993e50",
+    "clientID": "491064171495-35kum91vn1gd6mkil5ve3h82fph9a5pa.apps.googleusercontent.com",
     "displayNames": {
       "first": [
         "Air",
@@ -151,7 +150,12 @@
         "#BF360C",
         "#3E2723"
       ]
-    }
+    },
+    "indexPathsRE": [
+      "^\\/review\\/[0-9a-f]{192}$",
+      "/about",
+      "/home"
+    ]
   },
   "production": {
     "configID": "production",

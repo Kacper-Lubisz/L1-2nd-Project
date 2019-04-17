@@ -1,0 +1,145 @@
+<button id="backButton" class="btn btn-info mt-4">Back to Home</button>
+
+<div class="jumbotron mt-4">
+    <h1 class="display-4">{{title}}</h1>
+    <hr class="my-4">
+    <div>{{{description}}}</div>
+</div>
+
+{{#if reviewsOpen}}
+    <button id="newReview" class="btn btn-primary">New Review</button>
+{{/if}}
+{{#if critiquesOpen}}
+    <button id="newCritique" class="btn btn-primary">New Critique</button>
+{{/if}}
+
+<div class="mt-3 d-flex w-100 justify-content-between" id="collapseSubmission">
+    <h2>My Submission</h2>
+    <button type="button" class="btn btn-default btn-sm">
+        <i class="material-icons" id="collapseSubmissionIcon">expand_less</i>
+    </button>
+</div>
+<div class="list-group collapse show" id="submission">
+    <p id="submittedText" {{#unless isSubmitted}}style="display:none;"{{/unless}}>You submitted your work at:
+        <span id="submissionTimeString">{{submissionTimeString}}</span></p>
+    <button id="downloadButton" class="btn btn-primary" {{#unless isSubmitted}}style="display:none;"{{/unless}}>Download
+        Submission
+    </button>
+
+    <p id="noSubmissionMessage" {{#if isSubmitted}}style="display:none;"{{/if}}>You haven't submitted any work for this assignment.</p>
+
+    {{#if submissionOpen}}
+        <button class="my-2 btn  btn-primary " id="submitButton">
+
+            {{#if isSubmitted}}
+                Resubmit
+            {{else}}
+                Submit
+            {{/if}} Work
+
+        </button>
+
+        <div class="custom-file mb-7 collapse" id="fileDiv">
+            <input type="file" class="custom-file-input" id="fileToUpload">
+            <label class="custom-file-label" for="fileToUpload">Choose a file...</label>
+            <div class="invalid-feedback">Invalid file format</div>
+        </div>
+
+    {{else}}
+        <p>Submissions are now closed</p>
+    {{/if}}
+
+</div>
+
+<div class="mt-3 d-flex w-100 justify-content-between" id="collapseTimeline">
+    <h2>Timeline</h2>
+    <button type="button" class="btn btn-default btn-sm">
+        <i class="material-icons" id="collapseTimelineIcon">expand_less</i>
+    </button>
+</div>
+<div class="mt-3 list-group collapse show" id="timeline">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Status</th>
+            <th scope="col">Open</th>
+            <th scope="col">Close</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Submissions</th>
+            <td>
+                <span data-toggle="tooltip" data-placement="top" title="{{badges.submission.tooltip}}"
+                      class="badge badge-{{badges.submission.modifier}}">{{badges.submission.text}}</span>
+            </td>
+            <td>{{submissionOpenString}}</td>
+            <td>{{submissionCloseString}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Reviews</th>
+            <td>
+                <span data-toggle="tooltip" data-placement="top" title="{{badges.review.tooltip}}"
+                      class="badge badge-{{badges.review.modifier}}">{{badges.review.text}}</span>
+            </td>
+            <td>{{reviewsOpenString}}</td>
+            <td>{{reviewsCloseString}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Critiques</th>
+            <td>
+                <span data-toggle="tooltip" data-placement="top" title="{{badges.critique.tooltip}}"
+                      class="badge badge-{{badges.critique.modifier}}">{{badges.critique.text}}</span>
+            </td>
+            <td>{{critiqueOpenString}}</td>
+            <td>{{critiqueCloseString}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Results</th>
+            <td>
+                <span data-toggle="tooltip" data-placement="top" title="{{badges.results.tooltip}}"
+                      class="badge badge-{{badges.results.modifier}}">{{badges.results.text}}</span>
+            </td>
+            <td colspan="2">{{resultsPublishString}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary" id="addToCalendar">Add to Google Calendar</button>
+</div>
+
+<div class="mt-3 d-flex w-100 justify-content-between" id="collapseMarking">
+    <h2>Marking</h2>
+    <button type="button" class="btn btn-default btn-sm">
+        <i class="material-icons" id="collapseMarkingIcon">expand_less</i>
+    </button>
+</div>
+<div class="list-group collapse show" id="marking">
+    <div class="list-group collapse show" id="categoryList">
+        {{#each markingCategories}}
+            <div class="list-group-item list-group-item-action category" id="{{this.categoryID}}">
+                <div class="d-flex w-100 justify-content-between">
+                    <h3 class="mr-auto">{{this.title}}</h3>
+                    <h3>{{weightString}}%</h3>
+                    <button type="button" class="btn btn-default btn-sm">
+                        <i class="material-icons" id="collapseCriteriaIcon">expand_less</i>
+                    </button>
+                </div>
+                <p>{{this.description}}</p>
+                <div class="list-group collapse show" id="criteriaList">
+                    {{#each this.markingCriteria}}
+                        <div class="list-group-item" id="{{this.assignmentID}}">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mr-auto">{{this.subtitle}}</h4>
+                                <h4>{{this.weightString}}%
+                                    <small> of {{../this.weightString}}%</small>
+                                </h4>
+                            </div>
+                            <p>{{this.description}}</p>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

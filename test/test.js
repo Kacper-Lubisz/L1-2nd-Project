@@ -24,6 +24,9 @@ userAuthenticationToken = {
     },
     signature: '978551f53ec29266fbfe8d35efbcb74563f0da7b97dec9e905b4618432333ee1'
 };
+// TODO
+// https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
+// https://www.chaijs.com/plugins/chai-http/
 
 describe("/users", () => {
     describe("GET /users", () => {

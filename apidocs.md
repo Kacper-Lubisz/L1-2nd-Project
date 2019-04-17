@@ -392,12 +392,12 @@ for fetching the properties of an assignment, including all the marking categori
 Parameter | Value | Data Type | Description | Parameter Type
 ---|---|---|---|---
 token | Required | Token | Proves that the request is made by a user | Header
-assignmentID | Required | String | The assignmentID of the assignment to be fetched | Body
+assignmentID | Required | String | The assignmentID of the assignment to be fetched | Query
 
 e.g.
 Header:
 ```
-token: '{"message":{"userID":"3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
+token: '{"message":{"workerID":"3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
 ```
 Body:
 ```json5
@@ -533,7 +533,7 @@ assigned when the data is added to the database.  The new variants also have mos
 e.g.
 Header:
 ```
-token: '{"message":{"userID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
+token: '{"message":{"workerID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
 ```
 Body:
 ```json5
@@ -655,7 +655,7 @@ an existing entry whereas one without will always be added as new.
 e.g.
 Header:
 ```
-token: '{"message":{"userID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
+token: '{"message":{"workerID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
 ```
 Body:
 ```json5
@@ -802,26 +802,28 @@ depending on the user that is making the request:
 Parameter | Value | Data Type | Description | Parameter Type
 ---|---|---|---|---
 token | Required | Token | Proves that the request is made by a user/admin | Header
-userID | Optional | String | The user who's reviews are to be fetched | Body
-work | Optional | WorkID | The work which's reviews are to be fetched | Body
-review | Optional | ReviewID | The particular review to be fetched | Body
+workerID | Optional | String | The user who's reviews are to be fetched | Query
+work | Optional | WorkID | The work which's reviews are to be fetched | Query
+review | Optional | ReviewID | The particular review to be fetched | Query
+
+[//]: # (TODO rework all these to be get requests)
 
 Parameter schemas:
 ```
 {
-  userID (String, optional): The ID of the user who's work is to be fetched
+  workerID (String, optional): The ID of the user who's work is to be fetched
   work (WorkID, optional): The composite key of the piece of work to have reviews fetched 
   review (ReviewID, optional): The composite key of a particular review to be fetched
 }
 
 WorkID {
   assignmentID (String, required): The assignment ID part of the composite key
-  userID (String, required): The user ID part of the composite key
+  workerID (String, required): The user ID part of the composite key
 }
 
 ReviewID {
   assignmentID (String, required): Part of the composite key that identifies the work being reviewed
-  userID (String, required): Part of the composite key that identifies the work being reviewed
+  workerID (String, required): Part of the composite key that identifies the work being reviewed
   reviewerID (String, required): The key that identifies the author of the review
 }
 ```
@@ -829,20 +831,20 @@ ReviewID {
 e.g.
 Header:
 ```
-token: '{"message":{"userID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
+token: '{"message":{"workerID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
 ```
 
 Body:
 ```json5
 {
-  userID: "83566c4039f629d0f95b2e3a9e4306fa15873c898a76117a21a667950b49ba8e",
+  workerID: "83566c4039f629d0f95b2e3a9e4306fa15873c898a76117a21a667950b49ba8e",
   work: {
     "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-    "userID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b"
+    "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b"
   },
   review: {
     "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-    "userID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+    "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
     "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
   }  
 }
@@ -864,7 +866,7 @@ Response {
 
 Review {
   assignmentID (String, required): Part of the composite key that identifies the work being reviewed
-  userID (String, required): Part of the composite key that identifies the work being reviewed
+  workerID (String, required): Part of the composite key that identifies the work being reviewed
   reviewerID (String, required): The key that identifies the author of the review
   comment (String, required): The comment left by the reviewer
   isComplete (Boolean, required): If the review has been submitted
@@ -910,7 +912,7 @@ e.g.
   user:[
     {
       "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-      "userID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+      "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
       "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
       "comment": "generally poor, do more work",
       "isComplete": true,
@@ -951,7 +953,7 @@ e.g.
   work:[
     {
       "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-      "userID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+      "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
       "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
       "comment": "generally poor, do more work",
       "isComplete": true,
@@ -961,7 +963,7 @@ e.g.
   ],
   review: {
     "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-    "userID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+    "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
     "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
     "comment": "generally poor, do more work",
     "isComplete": true,
@@ -1017,7 +1019,7 @@ isCritique | Required | Boolean | Whether a critique or a review is being create
 e.g.
 Header:
 ```
-token: '{"message":{"userID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
+token: '{"message":{"workerID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
 ```
 
 ### Responses
@@ -1034,7 +1036,7 @@ Response {
 
 Review {
   assignmentID (String, required): Part of the composite key that identifies the work being reviewed
-  userID (String, required): Part of the composite key that identifies the work being reviewed
+  workerID (String, required): Part of the composite key that identifies the work being reviewed
   reviewerID (String, required): The key that identifies the author of the review
   comment (String, optional): The comment on the review, if the review is new this is missing
   isComplete (boolean, optional): if the review is complete, if the review is new this is missing
@@ -1064,7 +1066,7 @@ e.g.
 ```json5
 Response {  
   "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-  "userID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+  "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
   "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
 }
 ```
@@ -1115,7 +1117,7 @@ Parameter Schema:
 ```
 Review {
   assignmentID (String, required): Part of the composite key that identifies the work being reviewed
-  userID (String, required): Part of the composite key that identifies the work being reviewed
+  workerID (String, required): Part of the composite key that identifies the work being reviewed
   reviewerID (String, required): The key that identifies the author of the review
   comment (String, required): The comment left by the reviewer
   isComplete (Boolean, required): If the review has been submitted
@@ -1135,13 +1137,13 @@ Grade {
 e.g.
 Header:
 ```
-token: '{"message":{"userID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
+token: '{"message":{"workerID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
 ```
 Body:
 ```
 {
   "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-  "userID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
+  "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
   "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
   "comment": "generally poor, do more work",
   "isComplete": true,

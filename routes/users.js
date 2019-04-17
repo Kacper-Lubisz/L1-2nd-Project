@@ -69,65 +69,13 @@ function generateDisplayIcon() {
     return iconPath;
 }
 
-/**
- * Returns the user with that userID or undefined
- * @param userID {String} The userID of the user that is to be found
- * @return {User|Undefined} The user's data
- */
-function getUserByUserID(userID) {
-    return getUserBy((user) => user.userID === userID);
-}
-
-/**
- * This callback is used for searching through all users.
- * @callback UserPredicate
- * @param {User} user The user that is to be predicated
- * @return {boolean} the return value
- */
-
-/**
- * Returns the user with that userID or undefined
- * @param callback {UserPredicate}
- * @return {User|Undefined} The user's data
- */
-function getUserBy(callback) {
-
-    // if this system were to be used this would be replaced with a database call
-    for (let i = 0; i < data.users.length; i++) {
-        if (callback(data.users[i])) {
-            return data.users[i];
-        }
-    }
-    return undefined;
-}
-
-/**
- * Deletes a user from the database
- * @param userID {String} The userID of the user that is to be deleted
- * @return {Boolean} If the user was deleted successfully
- */
-function deleteUserByUserID(userID) {
-
-    // if this system were to be used this would be replaced with a database call
-    for (let i = 0; i < data.users.length; i++) {
-        if (data.users[i].userID === userID) {
-            data.users.splice(i, 1);
-            return true;
-        }
-    }
-    return false;
-}
-
-/**
- * Adds a new user to the database.  **This function doesn't check if a user with the same username or userID exists**
- * @param user {User} The user to be added
- */
-function addUser(user) {
-    data.users.push(user);
-}
-
 router.patch("/", function (req, res) {
     res.set("Content-Type", "application/json");
+
+    res.status(500);
+    res.end("not implemented");
+    // TODO implement this
+    throw Error("Not Implemented");
 
     const auth = authentication.authenticateRequest(req);
     if (auth === null) { // insufficient permissions, no permission
@@ -187,40 +135,61 @@ router.patch("/", function (req, res) {
 });
 
 // `GET` for getting user data (authentication token required).
-router.get('/:username', function (req, res) {
-    res.set("Content-Type", "application/json");
+router.get('/', async function (req, res) {
 
-    const auth = authentication.authenticateRequest(req);
+    const auth = await authentication.verify(req.headers.token);
 
-    console.log(req.get("token"));
-
-    if (auth === null) { // insufficient permissions, no permission
-        res.status(403);
-        res.end(JSON.stringify({message: "No authentication token provided"}));
-
-    } else if (auth.userID !== req.params.userID && !auth.isAdmin) { // insufficient permissions, must be admin
-        res.status(403);
-        res.end(JSON.stringify({message: "Admin permission needed to access other user's data"}));
-
-    } else if (req.params.userID === undefined) { // invalid request
-        res.status(400);
-        res.end(JSON.stringify({message: "UserID not provided"}));
-
-    } else if (typeof req.params.userID !== "string") { // invalid request
-        res.status(400);
-        res.end(JSON.stringify({message: "UserID must be of type string"}));
+    if (auth === undefined) { // insufficient permissions, no permission
+        res.status(403).json({message: "Invalid authentication token"});
 
     } else {
+        const selectingUser = data.users.find((user) => user.email === auth.email);
+        // the user can be selected by userID or by userEmail
 
-        const user = getUserByUserID(req.params.userID);
+        if (selectingUser === undefined) {
+            res.status(403).json({message: "Authentication token belongs to no user"});
+        } else if (req.query.userID !== undefined && req.query.email !== undefined) {
+            res.status(400).json({message: "Must select user by userID or email"});
+        } else if (req.query.userID !== undefined && typeof req.query.userID !== "string") {
+            res.status(400).json({message: "userID must be of type string"});
+        } else if (req.query.email !== undefined && typeof req.query.email !== "string") {
+            res.status(400).json({message: "email must be of type string"});
 
-        if (user === undefined) {
-            res.status(404);
-            res.end(JSON.stringify({message: "User not found"}));
+        } else if (req.query.userID !== undefined) { // select user by the user id
+
+            if (selectingUser.userID === req.query.userID) {
+                res.status(200).json(selectingUser);
+            } else if (!selectingUser.isAdmin) {
+                res.status(403).json({message: "Admin permission needed to access other users"});
+            } else {
+                const selectedUser = data.users.find((user) => user.userID === req.query.userID);
+
+                if (selectedUser === undefined) {
+                    res.status(404).json({message: `No user found with userID ${req.query.userID}`});
+                } else {
+                    res.status(200).json(selectedUser);
+                }
+            }
+
+        } else if (req.query.email !== undefined) { // select user by the email
+
+            if (selectingUser.email === req.query.email) {
+                res.status(200).json(selectingUser);
+            } else if (!selectingUser.isAdmin) {
+                res.status(403).json({message: "Admin permission needed to access other users"});
+            } else {
+                const selectedUser = data.users.find((user) => user.email === req.query.email);
+
+                if (selectedUser === undefined) {
+                    res.status(404).json({message: `No user found with email ${req.params.email}`});
+                } else {
+                    res.status(200).json(selectedUser);
+                }
+            }
 
         } else {
-            res.status(200);
-            res.end(JSON.stringify(user));
+            res.status(400);
+            res.end(JSON.stringify({message: "Must select user by userID or email"}));
         }
     }
 });
@@ -228,6 +197,11 @@ router.get('/:username', function (req, res) {
 // `PUT` for adding users and changing properties (this is only to be accessed by the administrator).
 router.put('/', function (req, res) {
     res.set("Content-Type", "application/json");
+
+    res.status(500);
+    res.end("not implemented");
+    // TODO implement this
+    throw Error("Not Implemented");
 
     const auth = authentication.authenticateRequest(req);
 
@@ -304,6 +278,11 @@ router.put('/', function (req, res) {
 router.delete('/', function (req, res) {
     res.set("Content-Type", "application/json");
 
+    res.status(500);
+    res.end("not implemented");
+    // TODO implement this
+    throw Error("Not Implemented");
+
     const auth = authentication.authenticateRequest(req);
 
     if (auth === null) { // insufficient permissions, no permission
@@ -328,59 +307,6 @@ router.delete('/', function (req, res) {
         } else {
             res.status(404);
             res.end(JSON.stringify({message: "User not found"}));
-        }
-    }
-});
-
-// `POST` for getting an authentication token that the client can then use to be granted access to other APIs.
-router.post('/', function (req, res) {
-    res.set("Content-Type", "application/json");
-
-    if (req.body.username === undefined) { // invalid request
-        res.status(400);
-        res.end(JSON.stringify({message: "Username not provided"}));
-
-    } else if (typeof req.body.username !== "string") { // invalid request
-        res.status(400);
-        res.end(JSON.stringify({message: "Username must be of type string"}));
-
-    } else if (req.body.password === undefined) {
-        res.status(400);
-        res.end(JSON.stringify({message: "Username not provided"}));
-
-    } else if (typeof req.body.password !== "string") {
-        res.status(400);
-        res.end(JSON.stringify({message: "Username must be of type string"}));
-
-    } else { // request is valid
-
-        const user = getUserBy((user) => user.username === req.body.username);
-
-        const hash = crypto.createHash("sha256");
-        hash.update(req.body.password, "utf8");
-        hash.update((user === undefined || user.salt === undefined) ? "" : user.salt, "utf8");
-        const hashedPassword = hash.digest("hex");
-
-        if (user === undefined || user.password !== hashedPassword) { // invalid credentials
-            res.status(403);
-            res.end(JSON.stringify({message: "The username and password pair was invalid"}));
-            // I make sure that the hash is computed even if the username is invalid so that an attacker can't guess
-            // valid username based on the time that it takes the server to respond
-
-        } else { // valid username and password pair
-
-            res.status(200);
-            const message = {
-                userID: user.userID,
-                validUntil: new Date().getTime() + config.authenticationTokenDuration,
-                isAdmin: false
-            };
-            const hash = crypto.createHash("sha256");
-            hash.update(JSON.stringify(message), "utf8");
-            hash.update(config.privateKey, "utf8");
-            const signature = hash.digest("hex");
-
-            res.end(JSON.stringify({message: message, signature: signature, user: user}));
         }
     }
 });
