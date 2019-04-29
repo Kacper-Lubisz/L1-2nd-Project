@@ -1,0 +1,224 @@
+<button id="backButton" class="btn btn-info mt-4">Back</button>
+
+<div class="jumbotron mt-4">
+    <h1 class="display-4">Your review</h1>
+    <h2 id="badges">
+        {{#each badges}}
+            <span data-toggle="tooltip" data-placement="top" title="{{this.tooltip}}"
+                  {{#unless this.isVisible}}style="display:none;"{{/unless}}
+                  class="badge badge-{{this.modifier}}" {{#if this.id}}id="{{this.id}}"{{/if}}>{{this.text}}</span>
+        {{/each}}
+    </h2>
+    <hr class="my-4">
+    <div>
+        <p class="lead">of
+            <img style="height: 30px;"
+                 src="{{work.worker.identicon}}"
+                 alt="{{work.worker.displayName}}'s icon">
+            {{work.worker.displayName}}'s
+            <button class="btn btn-outline-secondary" id="goAssignment">{{assignment.title}}</button>
+        </p>
+
+        <button id="downloadButton" class="btn btn-primary btn-block">
+            Download Work
+        </button>
+
+    </div>
+</div>
+
+<div class="mt-3 d-flex w-100 justify-content-between" id="collapseReview">
+    <h2 class="mr-auto">Comments and Grades</h2>
+    {{#unless isSubmitted}}
+        <button type="button" class="btn btn-outline-secondary my-1" id="expandIncomplete">
+            Toggle Only Incomplete
+        </button>
+    {{/unless}}
+    {{#if hasPendingCritiques}}
+        <button type="button" class="btn btn-outline-secondary my-1" id="expandCritiques">
+            Toggle Pending/All Critiques
+        </button>
+    {{/if}}
+    <button type="button" class="btn btn-default btn-sm">
+        <i class="material-icons" id="collapseReviewIcon">expand_less</i>
+    </button>
+</div>
+
+<div class="collapse show mb-3" id="review">
+    <div class="list-group" id="categoryList">
+        {{#each assignment.markingCategories}}
+            <div class="list-group-item-action list-group-item category" id="{{this.categoryID}}">
+                <div class="d-flex w-100 justify-content-between">
+                    <h3 class="mr-auto">{{this.title}}
+                        <i class="material-icons align-middle" data-toggle="tooltip" data-placement="top"
+                           title="{{this.description}}">info</i>
+                    </h3>
+                    <h3>
+                        {{#if ../isSubmitted}}
+                            {{#if this.hasPending}}
+                                <span data-toggle="tooltip" data-placement="top"
+                                      class="badge badge-category badge-warning">Pending Critique</span>
+                            {{/if}}
+                        {{else}}
+                            {{#if this.isComplete}}
+                                <span data-toggle="tooltip" data-placement="top"
+                                      class="badge badge-category badge-success">Complete</span>
+                            {{else}}
+                                <span data-toggle="tooltip" data-placement="top"
+                                      class="badge badge-category badge-warning">Incomplete</span>
+                            {{/if}}
+                        {{/if}}
+                    </h3>
+                    <button type="button" class="btn btn-default btn-sm">
+                        <i class="material-icons collapseCriteriaIcon">expand_less</i>
+                    </button>
+                </div>
+                <div class="list-group collapse show criteriaList">
+                    {{#each this.markingCriteria}}
+                        <div class="list-group-item-action list-group-item criteria"
+                             id="{{this.categoryID}}{{this.criteriaID}}">
+
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mr-auto">{{this.subtitle}}
+                                    <i class="material-icons align-middle" data-toggle="tooltip"
+                                       data-placement="top"
+                                       title="{{this.description}}">info</i>
+                                </h4>
+                                <h4>
+                                    {{#if ../../isSubmitted}}
+                                        {{#if this.hasPending}}
+                                            <span data-toggle="tooltip" data-placement="top"
+                                                  class="badge badge-warning badge-criteria">
+                                                Pending Critique</span>
+                                        {{/if}}
+                                    {{else}}
+                                        {{#if this.isComplete}}
+                                            <span data-toggle="tooltip" data-placement="top"
+                                                  class="badge badge-success badge-criteria">Complete</span>
+                                        {{else}}
+                                            <span data-toggle="tooltip" data-placement="top"
+                                                  class="badge badge-warning badge-criteria">Incomplete</span>
+                                        {{/if}}
+                                    {{/if}}
+                                </h4>
+                                <button type="button" class="btn btn-default btn-sm">
+                                    <i class="material-icons collapseGradeIcon">expand_less</i>
+                                </button>
+                            </div>
+
+                            <div class="grade collapse show">
+                                <div class="row">
+                                    <div class="col-8"><label for="comment">Your comment:</label></div>
+                                    <div class="col-4"><label for="mark">% Mark Given:</label></div>
+                                </div>
+                                <div class="row content">
+                                    <div class="col-8">
+                                    <textarea class="form-control comment" id="comment" rows="1"
+                                              {{#if ../../isSubmitted}}disabled{{/if}}
+                                    >{{#if this.grade.comment}}{{this.grade.comment}}{{/if}}</textarea>
+                                    </div>
+                                    <div class="col-4">
+                                        <input class="form-control mark" id="mark" type="number" min="0" max="100"
+                                               step="1" value="{{this.grade.markString}}"
+                                               {{#if ../../isSubmitted}}disabled{{/if}}>
+                                    </div>
+                                </div>
+                                <div class="list-group collapse show mx-0 mt-2" id="cGradeList">
+                                    {{#each this.cGrades}}
+                                        <div class="list-group-item list-group-item-action critique{{#unless
+                                                this.isPending}} moreGrade{{/unless}}"
+                                             {{#unless this.isPending}}style="display:none;"{{/unless}}
+                                             id="{{../this.categoryID}}{{../this.criteriaID}}{{this.criticID}}">
+
+                                            <div class="d-flex w-100 justify-content-between collapseGrade">
+                                                <h5 class="mr-auto"><img style="height: 30px;"
+                                                                         src="{{this.critic.identicon}}"
+                                                                         alt="{{this.critic.displayName}}'s icon">
+                                                    {{this.critic.displayName}}'s Critique</h5>
+
+                                                <h5>
+                                                    {{#each this.badges}}
+                                                        <span data-toggle="tooltip" data-placement="top"
+                                                              title="{{this.tooltip}}"
+                                                              class="badge badge-{{this.modifier}} {{#if
+                                                                      this.class}}{{this.class}}{{/if}}"
+                                                              {{#unless this.isVisible}}style="display:none;"{{/unless}}
+                                                        >{{this.text}}</span>
+                                                    {{/each}}
+                                                </h5>
+                                                <button type="button" class="btn btn-default btn-sm">
+                                                    <i class="material-icons collapseGradeIcon">expand_less</i>
+                                                </button>
+                                            </div>
+                                            <div class="critiqueContent collapse show">
+                                                <div class="row">
+                                                    <div class="col-8"><label for="cComment">Their comment:</label>
+                                                    </div>
+                                                    <div class="col-4"><label for="cMark">% Proposed Mark:</label></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                    <textarea class="form-control" rows="1" disabled
+                                                              id="cComment">{{this.comment}}</textarea>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <input class="form-control" id="cMark"
+                                                               value="{{this.markString}}"
+                                                               disabled>
+                                                    </div>
+                                                </div>
+                                                {{#if this.isPending}}
+                                                    <div class="row mt-3 collapse show">
+                                                        <div class="col-6">
+                                                            <button class="btn btn-success btn-block acceptButton">
+                                                                Accept
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <button class="btn btn-danger btn-block rejectButton">Reject
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                {{/if}}</div>
+                                        </div>
+                                    {{/each}}
+                                    {{#if this.moreGrades}}
+                                        <div class="list-group-item list-group-item-action showMoreCritiques">
+                                            <p class="text-center mb-0">
+                                                Show {{this.moreGrades}} more critique(s) which aren't actionable
+                                            </p>
+                                        </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="d-flex w-100 mt-3 justify-content-between">
+        <h3 class="mr-auto"><label for="generalComment">General Comment:</label></h3>
+        <h3>
+            {{#unless isSubmitted}}
+                {{#if comment}}
+                    <span data-toggle="tooltip" data-placement="top" id="commentComplete"
+                          class="badge badge-success">Complete</span>
+                {{else}}
+                    <span data-toggle="tooltip" data-placement="top" id="commentComplete"
+                          class="badge badge-warning">Incomplete</span>
+                {{/if}}
+            {{/unless}}
+        </h3>
+    </div>
+
+    <textarea class="form-control comment" id="generalComment" rows="3" {{#if isSubmitted}}disabled{{/if}}
+    >{{comment}}</textarea>
+
+    {{#unless isSubmitted}}
+        <button class="mt-3 btn btn-primary btn-block collapse show" id="submitButton"
+                {{#unless isComplete}}disabled{{/unless}}>Submit
+        </button>
+    {{/unless}}
+
+</div>
