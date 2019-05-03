@@ -1,6 +1,6 @@
 const config = require("../config/config");
-const path = require('path');
-const createError = require('http-errors');
+const path = require("path");
+const createError = require("http-errors");
 
 // Load all the regular expressions
 const validRE = config.indexPathsRE.map((stringRE) => new RegExp(stringRE));
@@ -14,12 +14,11 @@ const validRE = config.indexPathsRE.map((stringRE) => new RegExp(stringRE));
  * @param next The next piece of middleware
  */
 module.exports = function (req, res, next) {
-    const match = validRE.find((re) => re.test(req.path));
+  const match = validRE.find((re) => re.test(req.originalUrl));
 
-    if (match !== undefined) {
-        res.sendFile(path.join(__dirname, '../public', 'index.html'));
-        res.end();
-    } else {
-        next(createError(404));
-    }
+  if (match !== undefined) {
+    res.sendFile(path.join(__dirname, "../public", "index.html"));
+  } else {
+    next(createError(404));
+  }
 };

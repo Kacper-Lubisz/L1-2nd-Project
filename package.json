@@ -4,23 +4,27 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "test": "mocha"
+    "test": "mocha",
+    "pretest": "eslint --ignore-path .gitignore ."
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "express-fileupload": "^1.1.4",
+    "express-sanitizer": "^1.0.5",
     "file_upload": "^1.0.1",
     "google-auth-library": "^3.1.2",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
-    "pngjs-image": "^0.11.7",
-    "pug": "^2.0.3"
+    "pngjs-image": "^0.11.7"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
-    "mocha": "^6.1.2"
+    "eslint": "^5.16.0",
+    "eslint-config-strongloop": "^2.1.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.0.0"
   }
 }

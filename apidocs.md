@@ -1,75 +1,69 @@
 # API Documentation
 
-## `GET /users`
-This endpoint getting the data of a user (admin authentication token required)
+## `GET` `/users`
+This endpoint can be used for getting the information about a users or for discovering if there is a user account 
+associated with an authentication token. 
+
+The user can be selected buy userID or email (which are both primary keys, bit redundant yes, this is bad, no time to 
+fix).
 
 ### Parameters
 
 Parameter | Value | Data Type | Description | Parameter Type
 ---|---|---|---|---
-token | Required | Token | Proves that the request is made by an admin | Header
-userID | Required | String | The userID of the user to be fetched | Body
+token | Required | String | Google provided auth token | Header
+userID | Optional | String | The userID of the user to be fetched | Query
+email | Optional | String | The email of the user to be fetched | Query
 
-e.g.
-Header:
+Example Query:
 ```
-token: '{"message":{"userID":"3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
-```
-Body:
-```json5
-{
-  userID: "3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF"
-}
+?userID=3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF
 ```
 
 ### Responses
 
 #### `OK` 200 - Successful fetch
-##### Response schema
+Response schema:
 ```
-User {
+Response {
   userID (String, required): The id of the user
-  username (String, required): The username
+  email (String, required): The user's email address
   displayName (String, required): The user's displayName
-  displayIcon (String, required): The URL to the displayIcon
-  password (String, required): The hashed username
-  salt (String, required): The hashing salt used
+  identicon (String, required): The URL to the users icon
   isAdmin (boolean, required): If the user is an admin
 }
 ```
-e.g.
+example, 
 ```json5
 {
-  userID: "3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF",
-  username: "admin",
-  salt: "high salt levels",
-  displayName: "Adjective None",
-  displayIcon: "icons/icon1.png",
-  password: "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-  isAdmin: true
+  "userID": "3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF",
+  "email": "youtemail@address.here",
+  "displayName": "Adjective Noun",
+  "identicon": "/icons/FF6F00.png",
+  "isAdmin": false
 }
 ```
 #### `Forbidden` 403 - Invalid authentication token / Insufficient Permissions
-##### Response schema
+Response schema,
 ```
-Error {
+Response {
   message (String, required): String explanation of invalid authentication token
 }
 ```
-e.g.
+example, 
 ```json5
 {
   message: "Invalid authentication token"
 }
 ```
-#### `Bad Request` 400 - Missing Parameter
+#### `Bad Request` 400 - Invalid Parameter
 ##### Response schema
 ```
-Error {
+Response {
   message (String, required): String explanation
 }
 ```
-e.g.
+example, 
 ```json5
 {
   message: "No userID provided"
@@ -78,11 +72,11 @@ e.g.
 #### `Not Found` 404 - No such user exists
 ##### Response schema
 ```
-Error {
+Response {
   message (String, required): String explanation
 }
 ```
-e.g.
+example, 
 ```json5
 {
   message: "No such user exists"
@@ -91,767 +85,219 @@ e.g.
 
 ---
  
-## `PATCH /users`
-This endpoint is for changing information about an already existing user. Password, Display Name, Display Icon and 
-isAdmin can be changed.
+
+## `GET` `/assignments` 
+This endpoint can be used for getting the information about assignments, it returns the assignment relation but also 
+all related category and criteria relations.
+
+This end point has three different methods for selecting:
+  * Select by ownerID, return all assignments that a particular user has work for
+  * Select by assignmentID, return the one specific assignment
+  * Select by nothing, returns all assignments (requires admin permission)
 
 ### Parameters
 
 Parameter | Value | Data Type | Description | Parameter Type
 ---|---|---|---|---
-token | Required | Token | Proves that the request is made by an admin | Header
-userID | Required | String | The users id | Body
-password | Optional | String | The new password password | Body
-isAdmin | Optional | Boolean | If user is to be an admin | Body
+token | Required | String | Google provided auth token | Header
+ownerID | Optional | String | The userID of the user who's assignments are to be fetched | Query
+assignmentID | Optional | String | The id of the assignment to be fetched | Query
 
-e.g.
-Header:
+Example Body:
 ```
-token: '{"message":{"userID":"3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
-```
-Body:
-```json5
-{
-  username: "admin",
-  password: "plain text password",
-  isAdmin: false
-}
-```
-
-### Responses
-#### `OK` 200 - Successful Added
-##### Response schema
-```
-Update {
-  user (User, required) The user data after the update 
-}
-```
-e.g.
-```json5
-{
-  userID: "3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF",
-  username: "admin",
-  salt: "high salt levels",
-  displayName: "Adjective None",
-  displayIcon: "icons/icon1.png",
-  password: "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-  isAdmin: true
-}
-```
-#### `Forbidden` 403 - Invalid authentication token / Insufficient Permissions
-##### Response schema
-```
-Error {
-  message (String, required): String explanation of invalid authentication token
-}
-```
-e.g.
-```json5
-{
-  message: "Invalid authentication token"
-}
-```
-#### `Bad Request` 400 - Missing Parameter
-##### Response schema
-```
-Error {
-  message (String, required): String explanation
-}
-```
-e.g.
-```json5
-{
-  message: "Missing password argument (needed for creating a new user)"
-}
-```
-
----
-
-## `PUT /users`
-This endpoint is for creating new users (admin authentication token required).  The user's id, displayName, displayIcon 
-and salt are generated automatically.
-
-### Parameters
-
-Parameter | Value | Data Type | Description | Parameter Type
----|---|---|---|---
-token | Required | Token | Proves that the request is made by an admin | Header
-username | Required | String | The new users username | Body
-password | Required | String | The new users password | Body
-isAdmin | Optional | Boolean | If user is to be an admin | Body
-
-e.g.
-Header:
-```
-token: '{"message":{"userID":"3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
-```
-Body:
-```json5
-{
-  username: "admin",
-  password: "plain text password",
-  isAdmin: false
-}
-```
-
-### Responses
-#### `OK` 200 - Successful Added
-##### Response schema
-```
-Update {
-  user (User, required) the new user that was added 
-}
-```
-e.g.
-```json5
-{
-  userID: "3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF",
-  username: "admin",
-  salt: "high salt levels",
-  displayName: "Adjective None",
-  displayIcon: "icons/icon1.png",
-  password: "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-  isAdmin: true
-}
-```
-#### `Forbidden` 403 - Invalid authentication token / Insufficient Permissions
-##### Response schema
-```
-Error {
-  message (String, required): String explanation of invalid authentication token
-}
-```
-e.g.
-```json5
-{
-  message: "Invalid authentication token"
-}
-```
-#### `Bad Request` 400 - Missing Parameter
-##### Response schema
-```
-Error {
-  message (String, required): String explanation
-}
-```
-e.g.
-```json5
-{
-  message: "Missing password argument (needed for creating a new user)"
-}
-```
-#### `Conflict` 409 - User with that username already exists
-##### Response schema
-```
-Error {
-  message (String, required): String explanation
-}
-```
-e.g.
-```json5
-{
-  message: "User with that username already exists"
-}
-```
-
----
-
-## `DELETE /users`
-This endpoint is for deleting new users (admin authentication token required).
-
-### Parameters
-
-Parameter | Value | Data Type | Description | Parameter Type
----|---|---|---|---
-token | Required | Token | Proves that the request is made by an admin | Header
-userID | Required | String | The userID of the user to be deleted | Body
-
-e.g.
-Header:
-```
-token: '{"message":{"userID":"3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
-```
-Body:
-```json5
-{
-  userID: "3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF"
-}
-```
-
-### Responses
-#### `OK` 200 - Successful authenticated
-##### Response schema
-Empty Response
-
-#### `Forbidden` 403 - Invalid authentication token / Insufficient Permissions
-##### Response schema
-```
-Error {
-  message (String, required): String explanation of invalid authentication token
-}
-```
-e.g.
-```json5
-{
-  message: "Invalid authentication token"
-}
-```
-
-#### `Not Found` 404 - No such user exists
-##### Response schema
-```
-Error {
-  message (String, required): String explanation
-}
-```
-e.g.
-```json5
-{
-  message: "No such user exists"
-}
-```
-
----
-
-## `POST /users`
-This endpoint is for the client to obtain an authentication token.  The authentication token consists of the message and
-the signature.  The message states the permissions that the user has and when the token expires.  The signature is the 
-hash of the message and the server's private key.  The signature proves that the server created the message.
-
-### Parameters
-
-Parameter | Value | Data Type | Description | Parameter Type
----|---|---|---|---
-username | Required | String | The username | Body
-password | Required | String | The password | Body
-
-e.g.
-
-### Responses
-#### `OK` 200 - Successful authenticated
-##### Response schema
-```
-Token {
-  message (Message, required): The token message
-  signature (String, required): The token signature
-  user: (User, required): The userdata for the logged in user
-}
-
-Message {
-  userID (String, required): The userID that the token is for
-  isAdmin (Boolean, required): Whether the token grants admin privilege
-  validUntil (Int, required): The expiry date of the token (unix timestamp)
-}
-```
-The User type is defined above.
-e.g.
-```json5
-{
-  message: {
-      userID: "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-      isAdmin: true,
-      validUntil: 1551040494,
-  },
-  signature: "6a2da20943931e9834fc12cfe5bb47bbd9ae43489a30726962b576f4e3993e50"
-}
-```
-#### `Bad Request` 400 - The request was invalid
-##### Response schema
-```
-Error {
-  message (String, optional): Explanation of the error
-}
-```
-e.g.
-```json5
-{
-  message: "username parameter was missing"
-}
-```
-#### `Forbidden` 403 - The credential's were invalid
-##### Response schema
-```
-Error {
-  message (String, required): String explanation of invalid credentials
-}
-```
-e.g.
-```json5
-{
-  message: "The username and password pair was invalid"
-}
-```
-
----
-
-## `GET /assignments` 
-for fetching the properties of an assignment, including all the marking categories/criteria.
-
-### Parameters
-
-Parameter | Value | Data Type | Description | Parameter Type
----|---|---|---|---
-token | Required | Token | Proves that the request is made by a user | Header
-assignmentID | Required | String | The assignmentID of the assignment to be fetched | Query
-
-e.g.
-Header:
-```
-token: '{"message":{"workerID":"3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
-```
-Body:
-```json5
-{
-  assignmentID: "CE7A7C10B0DFD96808CCA64C88CF5C5E13B7775283BDC924767887BFA32C8FA1"
-}
+?userID=3443437509B8FAA5BA4501EF4E0E68312B67CA2DDB7515A64E9961F632C440AF
 ```
 
 ### Responses
 
 #### `OK` 200 - Successful fetch
-##### Response schema
+Response schema:
 ```
-Assignment {
+Response [Assignment]
+
+Response {
+  markingCategories (MarkingCategory[], required): The list of marking categories for this assignment
   assignmentID (String, required): The id of the assignment
   title (String, required): The title of the assignment
-  startTime (Number, optional): The start time of the assignment
-  markingCategories (MarkingCategory[], required): The marking categories of the assignment
+  blurb (String, required): The summary of the assignment
+  submissionOpen (Number, required): The unix time stamp of the time at which sumbissions open 
+  submissionClose (Number, required): The unix time stamp of the time at which sumbissions close
+  reviewsOpen (Number, required): The unix time stamp of the time at which reviews open
+  reviewsClose (Number, required): The unix time stamp of the time at which reviews close
+  critiquesOpen (Number, required): The unix time stamp of the time at which critiques open
+  critiquesClose (Number, required): The unix time stamp of the time at which critiques close
+  resultsPublish (Number, required): The unix time stamp of the time at which results publish
+  minReviews (Number, required): The minumum number of reviews to get 100% for reviews
+  minCritiques (Number, required): The minumum number of critiques to get 100% for critiques 
+  work (Work, required): The information about the piece of work that the user has for this assignment
 }
+
 MarkingCategory {
-  categoryID (String, required): The id of the marking category
-  title (String, required): The title of the marking category
-  weight (Number, required): The weight of the marking category
-  markingCriteria (MarkingCriteria[], required): The list of marking criteria for the category
+  markingCriteria (MarkingCriteria[], required): The list of marking criteria that belong to this category
+  assignmentID (String, required): The id of the assignment
+  categoryID (String, required): The id of the category
+  title (String, required): The title of the category
+  description (String, required): The description of the category
+  weight (Number, required): How much the category is worth
 }
+
 MarkingCriteria {
-  criteriaID (String, required): The id of the marking criteria
-  weight (Number, required): The weight of the criteria in the category
-  subtitle (String, required): The title of the criteria
-  description (String, required): The description of how marks should be awarded for this criteria
+  assignmentID (String, required): The id of the parent assignment
+  categoryID (String, required): The id of the parent category
+  criteriaID (String, required): The id of the criteria 
+  weight (Number, required): How much this criteria is worth
+  subtitle (String, required):  The title of the criteria
+  description (String, required): A description of this criteria describing how it should be marked
 }
-```
-e.g.
-```json5
-{
-  assignmentID: "CE7A7C10B0DFD96808CCA64C88CF5C5E13B7775283BDC924767887BFA32C8FA1",
-  title: "p5 Programming Summative",
-  markingCategories: [
-    {
-	  categoryID: "0C24A9363AEEAE73156824D1218137774BE59AE3962FE8A93DEB4A664835E3EB",
-	  title: "Code Quality",
-	  weight: 1,
-	  markingCriteria: [
-	    {
-		  criteriaID: "6E3A6F9E9947021031D8864CA2758613F8589CCDFE59C93FCF8A0330B92B2521",
-		  weight: 1,
-		  subtitle: "ESLint",
-		  description: "Marks in this category are awarded based on the number and type of warnings that ESLint gives when for the code. e.g. ..."
-		},
-		{
-		  criteriaID: "7E744141B40EA5501412E42C8B40FD0B05F1608AA2E4073944CCCCBD82F24EE8",
-		  weight: 1,
-		  subtitle: "Style",
-		  description: "Marks in this category are awarded based on quality of the code style.  Since there isn't an official style guide, this should be judged on the style consistency and general readability. e.g. ..."
-		}
-	  ]
-	},
-	{
-	  categoryID: "B60D3D892BABF62B41E522791E9187D3D4600133011A5C76FE7C5505C8511AA2",
-	  title: "Documentation Quality",
-	  weight: 1,
-	  markingCriteria: []
-	},
-  ]  
-}
-```
 
-#### `Bad Request` 400 - The request was invalid
-##### Response schema
+Work {
+  assignmentID (Stringm, required) the id of the assignment
+  workerID (String, required): The id of the worker
+  submissionTime (Number, required):  The unix time stamp of the time at which work was submitted
+}
+```
+example, 
+```json5
+[
+  {
+    "markingCategories": [
+      {
+        "markingCriteria": [
+          {
+            "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+            "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+            "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+            "weight": 1,
+            "subtitle": "First Criteria",
+            "description": "Some words 1"
+          },
+          {
+            "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+            "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+            "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+            "weight": 1,
+            "subtitle": "Second Criteria",
+            "description": "Some words 2"
+          }
+        ],
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "title": "First Category",
+        "description": "Some words 1",
+        "weight": 1
+      },
+      {
+        "markingCriteria": [
+          {
+            "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+            "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+            "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+            "weight": 1,
+            "subtitle": "First Criteria",
+            "description": "Some words 1"
+          },
+          {
+            "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+            "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+            "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+            "weight": 1,
+            "subtitle": "Second Criteria",
+            "description": "Some words 2"
+          }
+        ],
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "title": "Second Category",
+        "description": "This is about how good your code is",
+        "weight": 1
+      }
+    ],
+    "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+    "title": "Project 3",
+    "blurb": "This is basically some code that you have to write",
+    "submissionOpen": 1554734232868,
+    "submissionClose": 1554824500557,
+    "reviewsOpen": 0,
+    "reviewsClose": 0,
+    "critiquesOpen": 0,
+    "critiquesClose": 0,
+    "resultsPublish": 1554824500557,
+    "minReviews": 4,
+    "minCritiques": 10,
+    "work": {
+      "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+      "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+      "submissionTime": 0
+    }
+  }
+]
+```
+#### `Forbidden` 403 - Invalid authentication token / Insufficient Permissions
+Response schema,
 ```
 Error {
-  message (String, optional): Explanation of the error
+  message (String, required): String explanation of invalid authentication token
 }
 ```
-e.g.
-```json5
-{
-  message: "assignmentID parameter was missing"
-}
-```
-
-#### `Forbidden` 403 - The credential's were invalid
-##### Response schema
-```
-Error {
-  message (String, required): String explanation of invalid credentials
-}
-```
-e.g.
+example, 
 ```json5
 {
   message: "Invalid authentication token"
 }
 ```
-
----
-
-## `PUT /assignments`
-This endpoint is for creating a new assignment. Note that this doesn't need to contain all information to complete the 
-assignment.  This is the first call which creates the instance of the assignment in the database so that it can be 
-updated through calls to put.  This should only be called once per assignment, otherwise PATCH should be used.  The 
-startTime can only be set if the assignment is complete.  An assignment is field if none of the objects are missing any 
-fields. This requires admin privilege.
-
-### Parameters
-
-Parameter | Value | Data Type | Description | Parameter Type
----|---|---|---|---
-token | Required | Token | Proves that the request is made by an admin | Header
-assignment | Optional | NewAssignment (see below) | The data to instantiate the assignment with (otherwise use PATCH) | Body
-
-Parameter schemas:
-```
-NewAssignment {
-  title (String, optional): The title of the assignment
-  startTime (Number, optional): The start time of the assignment
-  markingCategories (MarkingCategory[], optional): The marking categories of the assignment
-}
-NewMarkingCategory {
-  title (String, optional): The title of the marking category
-  weight (Number, optional): The weight of the marking category
-  markingCriteria (MarkingCriteria[], optional): The list of marking criteria for the category
-}
-NewMarkingCriteria {
-  weight (Number, optional): The weight of the criteria in the category
-  subtitle (String, optional): The title of the criteria
-  description (String, optional): The description of how marks should be awarded for this criteria
-}
-```
-The 'New' variants of these schemas are just like the original ones except they don't contain IDs since they are 
-assigned when the data is added to the database.  The new variants also have most of their fields optional
-
-e.g.
-Header:
-```
-token: '{"message":{"workerID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
-```
-Body:
-```json5
-{
-  assignment: {
-	title: "p5 Programming Summative",
-	markingCategories: [
-	  {
-		title: "Code Quality",
-		weight: 1,
-		markingCriteria: [
-		  {
-			weight: 1,
-			subtitle: "ESLint",
-			description: "Marks in this category are awarded based on the number and type of warnings that ESLint gives when for the code. e.g. ..."
-		  },
-		  {
-			weight: 1,
-			subtitle: "Style",
-			description: "Marks in this category are awarded based on quality of the code style.  Since there isn't an official style guide, this should be judged on the style consistency and general readability. e.g. ..."
-		  }
-		]
-      },
-      {
-		title: "Documentation Quality",
-		weight: 1,
-		markingCriteria: []
-	  },
-	]
-  }  
-}
-```
-
-### Responses
-
-#### `OK` 200 - Successfully added, return data with IDs
-##### Response schema
-Assignment (see `GET /assignments`)
-e.g.
-```json5
-{
-  assignmentID: "ce7a7c10b0dfd96808cca64c88cf5c5e13b7775283bdc924767887bfa32c8fa1",
-  title: "p5 Programming Summative",
-  markingCategories: [
-    {
-	  categoryID: "0c24a9363aeeae73156824d1218137774be59ae3962fe8a93deb4a664835e3eb",
-	  title: "Code Quality",
-	  weight: 1,
-	  markingCriteria: [
-	    {
-		  criteriaID: "6E3A6F9E9947021031D8864CA2758613F8589CCDFE59C93FCF8A0330B92B2521",
-		  weight: 1,
-		  subtitle: "ESLint",
-		  description: "Marks in this category are awarded based on the number and type of warnings that ESLint gives when for the code. e.g. ..."
-		},
-		{
-		  criteriaID: "7e744141b40ea5501412e42c8b40fd0b05f1608aa2e4073944ccccbd82f24ee8",
-		  weight: 1,
-		  subtitle: "Style",
-		  description: "Marks in this category are awarded based on quality of the code style.  Since there isn't an official style guide, this should be judged on the style consistency and general readability. e.g. ..."
-		}
-	  ]
-	},
-	{
-	  categoryID: "b60d3d892babf62b41e522791e9187d3d4600133011a5c76fe7c5505c8511aa2",
-	  title: "Documentation Quality",
-	  weight: 1,
-	  markingCriteria: []
-	},
-  ]  
-}
-```
-
-#### `Bad Request` 400 - The request was invalid
+#### `Bad Request` 400 - Invalid Parameter
 ##### Response schema
 ```
 Error {
-  message (String, optional): Explanation of the error
+  message (String, required): String explanation
 }
 ```
-e.g.
+example, 
 ```json5
 {
-  message: "Can't set the startTime for an incomplete assignment"
+  message: "Type of ownerID must be string"
 }
 ```
-
-#### `Forbidden` 403 - The credential's were invalid
+#### `Not Found` 404 - No such assignment exists
 ##### Response schema
 ```
 Error {
-  message (String, required): String explanation of invalid credentials
+  message (String, required): String explanation
 }
 ```
-e.g.
+example, 
 ```json5
 {
-  message: "Invalid/Insufficient authentication token"
+  message: "No assignment found with assignmentID ..."
 }
 ```
 
 ---
 
-## `PATCH /assignments`
-This endpoint is for updating an already existing assignment. An assignment can only be edited until it is published 
-(has a startTime).
-
-### Parameters
-
-Parameter | Value | Data Type | Description | Parameter Type
----|---|---|---|---
-token | Required | Token | Proves that the request is made by an admin | Header
-assignment | Optional | Assignment (see above) | The data to instantiate the assignment with (otherwise use PATCH) | Body
-
-The schema for the assignment is actually a mix of Assignment and NewAssignment.  Any categories and criteria that don't
-already have an id need to be submitted as New.  These can be mixed in the same arrays.  An entry with an id will update
-an existing entry whereas one without will always be added as new.
-
-e.g.
-Header:
-```
-token: '{"message":{"workerID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
-```
-Body:
-```json5
-{
-  assignment: {
-    assignmentID: "ce7a7c10b0dfd96808cca64c88cf5c5e13b7775283bdc924767887bfa32c8fa1",
-	title: "p5 Programming Summative",
-	startTime: null, 
-	markingCategories: [
-	  {
-	    categoryID: "0c24a9363aeeae73156824d1218137774be59ae3962fe8a93deb4a664835e3eb",
-		title: "Code Quality",
-		weight: 1,
-		markingCriteria: [
-		  {
-			weight: 1,
-			subtitle: "Efficiency",
-			description: "Marks in this category are awarded the algorithms used, if there are examples of needlessly slow code the mark should be lowered."
-		  }
-		]
-      },
-      {
-		title: "Development of Original",
-		weight: 1,
-		markingCriteria: []
-	  }
-	]
-  }  
-}
-```
-
-### Responses
-
-#### `OK` 200 - Successfully updated, return data with IDs
-##### Response schema
-Assignment (see `GET /assignments`)
-e.g.
-```json5
-{
-  assignmentID: "ce7a7c10b0dfd96808cca64c88cf5c5e13b7775283bdc924767887bfa32c8fa1",
-  title: "p5 Programming Summative",
-  markingCategories: [
-    {
-	  categoryID: "0c24a9363aeeae73156824d1218137774be59ae3962fe8a93deb4a664835e3eb",
-	  title: "Code Quality",
-	  weight: 1,
-	  markingCriteria: [
-	    {
-		  criteriaID: "6e3a6f9e9947021031d8864ca2758613f8589ccdfe59c93fcf8a0330b92b2521",
-		  weight: 1,
-		  subtitle: "ESLint",
-		  description: "Marks in this category are awarded based on the number and type of warnings that ESLint gives when for the code. e.g. ..."
-		},
-		{
-		  criteriaID: "7e744141b40ea5501412e42c8b40fd0b05f1608aa2e4073944ccccbd82f24ee8",
-		  weight: 1,
-		  subtitle: "Style",
-		  description: "Marks in this category are awarded based on quality of the code style.  Since there isn't an official style guide, this should be judged on the style consistency and general readability. e.g. ..."
-		},
-		{
-		  weight: 1,
-		  subtitle: "Efficiency",
-		  description: "Marks in this category are awarded the algorithms used, if there are examples of needlessly slow code the mark should be lowered."
-		}
-	  ]
-	},
-	{
-	  categoryID: "b60d3d892babf62b41e522791e9187d3d4600133011a5c76fe7c5505c8511aa2",
-	  title: "Documentation Quality",
-	  weight: 1,
-	  markingCriteria: []
-	},
-	{
-	  title: "Development of Original",
-	  weight: 1,
-	  markingCriteria: []
-	}
-  ]  
-}
-```
-
-#### `Bad Request` 400 - The request was invalid
-##### Response schema
-```
-Error {
-  message (String, optional): Explanation of the error
-}
-```
-e.g.
-```json5
-{
-  message: "Can't set the startTime for an incomplete assignment"
-}
-```
-
-#### `Not Found` 404 - The request made reference to something that can't be found
-For example, if the markingCriteriaID that is given doesn't exist,  this is an erroneous request.
-##### Response schema
-```
-Error {
-  message (String, optional): Explanation of the error
-}
-```
-e.g.
-```json5
-{
-  message: "MarkingCriteria with criteriaID='dba36bffa5cab0f922d087a3aeb179f9d4e745df40b323e1b1471402848c8a3e' doesn't exist"
-}
-```
-
-#### `Forbidden` 403 - The credential's were invalid
-##### Response schema
-```
-Error {
-  message (String, required): String explanation of invalid credentials
-}
-```
-e.g.
-```json5
-{
-  message: "Invalid/Insufficient authentication token"
-}
-```
-
----
-
-## `GET /reviews`
-This endpoint is used for getting reviews and critiques.  There are different ways to select reviews when using this 
-endpoint:
-  * By user, all the reviews/critiques started by a particular user (authentication token required, admin if not for self)
-  * By work, all the reviews/critiques on a piece of work (authentication token required, admin if not yours, admin if the 
-        review isn't submitted)
-  * By id, the particular review/critique (authentication token required, admin if not your review or of your work)
+## `GET` `/reviews`
+This endpoint is used for getting reviews and critiques.  This endpoint also returns all the reviews and critiques on 
+the work of a user.  There are two ways to select when using this endpoint:
+  * By ownerID, all the reviews/critiques started by a particular user (authentication token required, admin if not 
+  for self)
   * By nothing, returns all the reviews and critiques (admin authentication token required)
 
-These different selections can be made by providing particular parameters.  Notably, critiques behave differently 
-depending on the user that is making the request:
-  * Owner, can access all reviews and critiques but only after the marking period is over
-  * Reviewer, can access the reviews of the work that they have reviewed and their critiques
-  * Critic, can access the reviews and their own critiques on review they have been assigned to critique
+When selecting by owner the results are returned in three separate lists, signifying the owners relation to the review.
+This can be: the owner is the worker on the reviews and assignments; the owner is the reviewer or, the owner is the 
+critic.  On the other hand when all reviews are selected, they are returned in one list
+
+The reviews are returned in three lists, depending on their relation with the user.
 
 ### Parameters
 
 Parameter | Value | Data Type | Description | Parameter Type
 ---|---|---|---|---
 token | Required | Token | Proves that the request is made by a user/admin | Header
-workerID | Optional | String | The user who's reviews are to be fetched | Query
-work | Optional | WorkID | The work which's reviews are to be fetched | Query
-review | Optional | ReviewID | The particular review to be fetched | Query
+ownerID | Optional | String | The user who's reviews/critiques are to be fetched | Query
 
-[//]: # (TODO rework all these to be get requests)
-
-Parameter schemas:
+Example Body:
 ```
-{
-  workerID (String, optional): The ID of the user who's work is to be fetched
-  work (WorkID, optional): The composite key of the piece of work to have reviews fetched 
-  review (ReviewID, optional): The composite key of a particular review to be fetched
-}
-
-WorkID {
-  assignmentID (String, required): The assignment ID part of the composite key
-  workerID (String, required): The user ID part of the composite key
-}
-
-ReviewID {
-  assignmentID (String, required): Part of the composite key that identifies the work being reviewed
-  workerID (String, required): Part of the composite key that identifies the work being reviewed
-  reviewerID (String, required): The key that identifies the author of the review
-}
+?ownerID=83566c4039f629d0f95b2e3a9e4306fa15873c898a76117a21a667950b49ba8e
 ```
-
-e.g.
-Header:
-```
-token: '{"message":{"workerID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
-```
-
-Body:
-```json5
-{
-  workerID: "83566c4039f629d0f95b2e3a9e4306fa15873c898a76117a21a667950b49ba8e",
-  work: {
-    "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-    "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b"
-  },
-  review: {
-    "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-    "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-    "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-  }  
-}
-```
-
-The three selection types specified by the parameters can be used in the same request, to select all as admin simply 
-leave all these fields blank.
 
 ### Responses
 
@@ -859,25 +305,33 @@ leave all these fields blank.
 ##### Response schema
 ```
 Response {
-  user: (Review[], Optional )
-  work: (Review[], Optional)
-  review:(Review, Optional)  
+  worker: (Review[], Optional): The array of reviews of the owners works
+  reviewer: (Review[], Optional): The array of reviews that were created by the owner
+  critic:(Review[], Optional): The array of reviews that are critiqued by the owner
+  reviews:(Review, Optional): The array of all reviews and critiques
+}
+
+CriticReview extends Review {
+  critique (Critique, required): The singular critique of the owner
 }
 
 Review {
   assignmentID (String, required): Part of the composite key that identifies the work being reviewed
   workerID (String, required): Part of the composite key that identifies the work being reviewed
+  work (Work, required): The information about the work that this review is of
   reviewerID (String, required): The key that identifies the author of the review
+  reviewer (UserData, required): The basic information about the user who created the review
   comment (String, required): The comment left by the reviewer
-  isComplete (Boolean, required): If the review has been submitted
+  submissionTime (Number|null, required): The time at which the review was submitted or otherwise null
   grades (Grade[], required): The grades associated with the review
   critiques (Critique[], required): The critiques associated with the review
 }
 
 Grade {
   assignmentID (String, required): Part of the composite key to identify the piece of work (which identifies the grade)
-  ownerID (String, required): Part of the composite key to identify the piece of work (which identifies the grade) 
+  workerID (String, required): Part of the composite key to identify the piece of work (which identifies the grade) 
   reviewerID (String, required): The id of the reviewer who left the review
+  categoryID (String, required): The id of the category that is being graded
   criteriaID (String, required): The id of the criteria that is being graded
   mark (Number, required): The mark given to the piece of work in the specific criteria
   comment (String, required): Explanation of the mark
@@ -885,94 +339,110 @@ Grade {
 
 Critique {
   assignmentID (String, required): Part of the composite key to identify the piece of work (which identifies the grade being critiqued)
-  ownerID (String, required): Part of the composite key to identify the piece of work (which identifies the grade being critiqued) 
-  reviewerID (String, required): The id of the reviewer who left the review (ideintifyies)
-  criticID (String, required): The id of the user that started the critque
-  comment (String, required): The general explanation for critique
-  isComplete (boolean, required): If the critique has been completed
-  grades (CritiquedGrade[], required): The list of grades that the critique desires to alter  
+  workerID (String, required): Part of the composite key to identify the piece of work (which identifies the grade being critiqued) 
+  reviewerID (String, required): The id of the reviewer who left the review (identifies)
+  criticID (String, required): The id of the user that started the critique
+  critic (UserData, required): The basic information about the user who created the critique
+  submissionTime (Number|null, required): The time at which the critique was submitted or otherwise null
+  critiquedGrades (CritiquedGrade[], required): The list of grades that the critique desires to alter  
 }
 
 CritiquedGrade {
   assignmentID (String, required): Part of the composite key to identify the piece of work (which identifies the grade being critiqued)
-  ownerID (String, required): Part of the composite key to identify the piece of work (which identifies the grade being critiqued) 
-  reviewerID (String, required): The id of the reviewer who left the review (ideintifyies)
+  workerID (String, required): Part of the composite key to identify the piece of work (which identifies the grade being critiqued) 
+  reviewerID (String, required): The id of the reviewer who left the review (identifiers)
   criticID (String, required): The id of the user that started the critque
-  criteriaID (String, required): Thd id of the critteria that is to be altered
+  criteriaID (String, required): Thd id of the criteria that this grade is part of
+  categoryID (String, required): Thd id of the category that this grade is part of
   proposedMark (Number, required): The mark proposed by the critique,
   comment (String, required): The exaplantion of the critiqued mark
   state (Number, required): The state of the critiqued grade (Proposed, Accepted, Rejected)
 }
 
+Work {
+  assignmentID (Stringm, required) the id of the assignment
+  workerID (String, required): The id of the worker
+  submissionTime (Number, required):  The unix time stamp of the time at which work was submitted
+  worker (UserData, required): The basic information about the user who created the work
+}
+
+UserData {
+  userID (String, required): The id of the user
+  displayName (String, required): The user's displayName
+  identicon (String, required): The URL to the users icon
+}
+
 ```
 
-e.g.
+example,
 ```json5
 {
-  user:[
+  "worker": [
     {
-      "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-      "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-      "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-      "comment": "generally poor, do more work",
-      "isComplete": true,
       "grades": [
         {
-          "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-          "ownerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-          "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-          "criteriaID": "04a7693c82490b9d79e528f4499eaaf3b16ae1e095d082b2319099ecd3e8de97",
-          "mark": 0.20,
-          "comment": "legit 20 serious warnings and 100 minor ones, no effort"
+          "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+          "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+          "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+          "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+          "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+          "mark": 0.5,
+          "comment": "comment 1"
         }
       ],
       "critiques": [
         {
-          "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-          "ownerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-          "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-          "criticID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-          "comment": "Poor review",
-          "isComplete": false,
-          "grades": [
+          "critiquedGrades": [
             {
-              "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-              "ownerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-              "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-              "criticID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-              "criteriaID": "04a7693c82490b9d79e528f4499eaaf3b16ae1e095d082b2319099ecd3e8de97",
-              "proposedMark": 0.0,
-              "comment": "with all those warnings he deserves nothing, no effort!",
-              "state": 1
+              "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+              "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+              "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+              "criticID": "0000000000000000000000000000000000000000000000000000000000000002",
+              "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+              "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+              "proposedMark": 0.4,
+              "comment": "comment 1",
+              "state": 4
             }
-          ]  
+          ],
+          "critic": {
+            "userID": "0000000000000000000000000000000000000000000000000000000000000002",
+            "displayName": "Name 2",
+            "identicon": "/icons/33691E.png"
+          },
+          "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+          "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+          "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+          "criticID": "0000000000000000000000000000000000000000000000000000000000000002",
+          "submissionTime": 0
         }
-      ]       
-    }  
-  ],
-  work:[
-    {
-      "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-      "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-      "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-      "comment": "generally poor, do more work",
-      "isComplete": true,
-      "grades": [],
-      "critiques": []
+      ],
+      "work": {
+        "worker": {
+          "userID": "0000000000000000000000000000000000000000000000000000000000000000",
+          "displayName": "Name 0",
+          "identicon": "/icons/FF6F00.png"
+        },
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "submissionTime": 0
+      },
+      "reviewer": {
+        "userID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "displayName": "Name 1",
+        "identicon": "/icons/01579B.png"
+      },
+      "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+      "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+      "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+      "comment": "comment 1",
+      "submissionTime": 0
     }
   ],
-  review: {
-    "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-    "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-    "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-    "comment": "generally poor, do more work",
-    "isComplete": true,
-    "grades": [],
-    "critiques": []
-  }
-}  
+  "reviewer": [],
+  "critic": []
+}
 ```
-
 #### `Bad Request` 400 - The request was invalid
 ##### Response schema
 ```
@@ -980,10 +450,10 @@ Error {
   message (String, optional): Explanation of the error
 }
 ```
-e.g.
+example,
 ```json5
 {
-  message: "Reviews of your own work are not avaiable until reviewing is over"
+  message: "Reviews of your own work are not available until reviewing is over"
 }
 ```
 
@@ -994,7 +464,7 @@ Error {
   message (String, required): String explanation of invalid credentials
 }
 ```
-e.g.
+example,
 ```json5
 {
   message: "Invalid authentication token"
@@ -1003,168 +473,82 @@ e.g.
 
 ---
 
-## `POST /reviews`
-This endpoint is for creating new reviews and critiques.  It only returns the ID's of the review or critique that has 
-just been created.  
-  * When a new review is made, the information about the work being reviewed is returned.
-  * When a critique is made, the information about the work and review are returned. 
+## `PATCH` `/reviews`
+This endpoint is for both updating reviews and critiques.  This end point takes different parameters depending on the 
+usage: patching reviews or patching critiques.  The two requests take very similar but have small differences in their 
+parameters.  In either case, only the grades that are passed are updated in the database, this means grades that are 
+intended to be cleared need to be passe with null values for their mark and comment.  This endpoint also allows for
+submitting reviews and critiques.  If the review/critique is submitted then the time stamp at which it was submitted
+will be returned (allowing for the client to update their stored version of the review/critique).
 
-### Parameters
+Authentication in this endpoint is done on the basis of the owner of the review/critique.  The user that is making the 
+request (known from auth token) can only edit their own reviews and their own critiques unless they have admin 
+privileges.
 
-Parameter | Value | Data Type | Description | Parameter Type
----|---|---|---|---
-token | Required | Token | Proves that the request is made by a user | Header
-isCritique | Required | Boolean | Whether a critique or a review is being create | Body
+In hindsight this is a badly designed API (because of the different ways that it can be used) and ought to be split 
+into two separate APIs (or at least way inputs are fed into it changed), of course this would have been improved if it 
+wasn't for the looming deadline.
 
-e.g.
-Header:
-```
-token: '{"message":{"workerID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
-```
-
-### Responses
-
-#### `Created` 201  - Successfully created new review
-##### Response schema
-
-```
-Response {
-  work (Work, required): The piece of work that the review is about
-  review (Review, required): The new review or existing review to be critiqued
-  critique (Critique, optional): The critique that might have been created 
-}
-
-Review {
-  assignmentID (String, required): Part of the composite key that identifies the work being reviewed
-  workerID (String, required): Part of the composite key that identifies the work being reviewed
-  reviewerID (String, required): The key that identifies the author of the review
-  comment (String, optional): The comment on the review, if the review is new this is missing
-  isComplete (boolean, optional): if the review is complete, if the review is new this is missing
-  grades (Grade[], optional): The grades associated with the review
-}
-  
-Grade {
-  assignmentID (String, required): Part of the composite key to identify the piece of work (which identifies the grade)
-  ownerID (String, required): Part of the composite key to identify the piece of work (which identifies the grade) 
-  reviewerID (String, required): The id of the reviewer who left the review
-  criteriaID (String, required): The id of the criteria that is being graded
-  mark (Number, required): The mark given to the piece of work in the specific criteria
-  comment (String, required): Explanation of the mark 
-}
-
-Critique {
-  assignmentID (String, required): Part of the composite key to identify the piece of work (which identifies the grade being critiqued)
-  ownerID (String, required): Part of the composite key to identify the piece of work (which identifies the grade being critiqued) 
-  reviewerID (String, required): The id of the reviewer who left the review (ideintifyies)
-  criticID (String, required): The id of the user that started the critque 
-}
-
-```
-
-e.g.
-
-```json5
-Response {  
-  "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-  "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-  "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-}
-```
-
-#### `Forbidden` 403 - The credential's were invalid/insufficient
-##### Response schema
-```
-Error {
-  message (String, required): String explanation of invalid credentials
-}
-```
-e.g.
-```json5
-{
-  message: "Invalid authentication token"
-}
-```
-
-#### `Not Found` 404 - No more work to review
-##### Response schema
-```
-Error {
-  message (String, required): String explanation
-}
-```
-e.g.
-```json5
-{
-  message: "Can't assign more work to review"
-}
-```
-
----
-
-## `PUT /reviews`
-This endpoint is for both updating reviews and critiques.  This means that depending the endpoint has different 
-authentication behaviours and expects different parameters based on which use case is being used. (authentication token required, review must be the users)
 
 ### Parameters
 
 Parameter | Value | Data Type | Description | Parameter Type
 ---|---|---|---|---
 token | Required | Token | Proves that the request is made by the user | Headers
-review | Required | Review | The content that is to be updated | Body
-
-Parameter Schema:
-
+assignmentID | Required | String | The id of the assignment to update | Body
+workerID | Required | String | The id of the worker to update | Body
+reviewerID | Required | String | The id of the reviewer to update | Body
+grades | Optional (for review) | Grade | The list of grades that are to be updates | Body
+comment | Optional (for review) | String | The comment on the review | Body 
+criticID | Optional  (for critique) | String | The id of the critic to update | Body
+critiquedGrades | Optional (for critique) | CritiquedGrade | The list of critiqued grades that are to be updated | Body
+submit | Required | Boolean | If the review/critique is to be submitted or not | Body
 ```
-Review {
-  assignmentID (String, required): Part of the composite key that identifies the work being reviewed
-  workerID (String, required): Part of the composite key that identifies the work being reviewed
-  reviewerID (String, required): The key that identifies the author of the review
-  comment (String, required): The comment left by the reviewer
-  isComplete (Boolean, required): If the review has been submitted
-  grades (Grade[], optional): The grades associated with the review
-}
-
 Grade {
-  assignmentID (String, required): Part of the composite key to identify the piece of work (which identifies the grade)
-  ownerID (String, required): Part of the composite key to identify the piece of work (which identifies the grade) 
-  reviewerID (String, required): The id of the reviewer who left the review
+  categoryID (String, required): The id of the criteria that is being graded
   criteriaID (String, required): The id of the criteria that is being graded
   mark (Number, required): The mark given to the piece of work in the specific criteria
   comment (String, required): Explanation of the mark
 }
+
+CritiquedGrade {
+  categoryID (String, required): The id of the criteria that is being graded
+  criteriaID (String, required): The id of the criteria that is being graded
+  proposedMark (Number, required): The proposed mark given to the piece of work in the specific criteria
+  comment (String, required): Explanation of the grade being criqitued
+}
 ```
 
-e.g.
-Header:
-```
-token: '{"message":{"workerID":"3443437509b8faa5ba4501ef4e0e68312b67ca2ddb7515a64e9961f632c440af","validUntil":1551133265883,"isAdmin":true},"signature":"0dc9e3fb931d4fb512a6547e2311b4a6c9233ca9676ae411d9db1ebb8663c323"}'
-```
-Body:
+Example Body:
 ```
 {
-  "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-  "workerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-  "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-  "comment": "generally poor, do more work",
-  "isComplete": true,
-  "grades": [
+  assignmentID: "0000000000000000000000000000000000000000000000000000000000000001",
+  workerID: "0000000000000000000000000000000000000000000000000000000000000001",
+  reviewerID: "0000000000000000000000000000000000000000000000000000000000000000",
+  grades: [
     {
-      "assignmentID": "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
-      "ownerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-      "reviewerID": "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",
-      "criteriaID": "04a7693c82490b9d79e528f4499eaaf3b16ae1e095d082b2319099ecd3e8de97",
-      "mark": 0.20,
-      "comment": "legit 20 serious warnings and 100 minor ones, no effort"
-    }
-  ]      
-}  
+      categoryID: "0000000000000000000000000000000000000000000000000000000000000000",
+      criteriaID: "0000000000000000000000000000000000000000000000000000000000000000",
+      comment: "some comment here 7",
+      mark: 0.5
+    },
+  ],
+  comment: "comment 7",
+  submit: false
+}
 ```
 
 ### Responses
 
-#### `Success` 200  - Successfully updated review
+#### `Success` 200  - Successfully updated review/critique
 ##### Response schema
 Empty Response
+
+#### `Success` 200  - Successfully **submitted** review/critique
+##### Response schema
+```json5
+{submissionTime: 1556665187650}
+```
 
 #### `Forbidden` 403 - Invalid authentication token / Insufficient Permissions
 ##### Response schema
@@ -1173,21 +557,21 @@ Error {
   message (String, required): String explanation of invalid authentication token
 }
 ```
-e.g.
+example,
 ```json5
 {
   message: "Invalid authentication token"
 }
 ```
 
-#### `Not Found` 404 - Nothing to fetch
+#### `Not Found` 404 - No such review/critique
 ##### Response schema
 ```
 Error {
   message (String, required): String explanation
 }
 ```
-e.g.
+example,
 ```json5
 {
   message: "No such review exists"
@@ -1201,7 +585,7 @@ Error {
   message (String, optional): Explanation of the error
 }
 ```
-e.g.
+example,
 ```json5
 {
   message: "Review can't be marked as complete until all criteria are reviewed"
@@ -1209,3 +593,352 @@ e.g.
 ```
 
 ---
+
+## `POST` `/reviews`
+This endpoint is used for creating new reviews and critiques.  The piece of work (or review) that is reviewed (or 
+critique) will be selected from all critiques that the user is not involved in (e.g. Can't review own work).  If there
+are no works/reviews for the user to review/critique then the server will respond with an error (status code 503).
+The endpoint will provide the information about the new review/critique as though it were fetched using `GET` 
+`/reviews`.
+
+When creating a new review, the reviewerID is to be defined and when creating a new critique the criticID is to be 
+defined.  If these IDs are not the same as the user making the request (from authentication token) then admin 
+privileges are required (only admins can create reviews/critiques for other people). 
+
+### Parameters
+
+Parameter | Value | Data Type | Description | Parameter Type
+---|---|---|---|---
+token | Required | Token | Proves that the request is made by the user | Headers
+assignmentID | Required | String | The id of the assignment, part of key pointing to review/critique | Body
+reviewerID | Optional | String | The id of the reviewer, part of key pointing to review/critique | Body
+critiqueID | Optional | String | The id of the critic, part of key pointing to review/critique | Body
+
+Example Body:
+```json5
+{
+  assignmentID: "5fb2054478353fd8d514056d1745b3a9eef066deadda4b90967af7ca65ce6505",
+  reviewerID: "651878578d5e948845809e5548023b3b01961d5231cfa5b98dd91dedfcf09e9b",        
+}  
+```
+
+### Responses
+
+#### `Success` 200  - Successfully created review
+##### Response schema
+```
+CriticReview extends Review {
+  critique (Critique, required): The singular critique of the owner
+}
+
+Review {
+  assignmentID (String, required): Part of the composite key that identifies the work being reviewed
+  workerID (String, required): Part of the composite key that identifies the work being reviewed
+  work (Work, required): The information about the work that this review is of
+  reviewerID (String, required): The key that identifies the author of the review
+  reviewer (UserData, required): The basic information about the user who created the review
+  comment (String, required): The comment left by the reviewer
+  submissionTime (null, required): The time at which the review was submitted or otherwise null
+  grades (Empty Array, required): The grades associated with the review
+  critiques (Empty Array, required): The critiques associated with the review
+}
+
+Work {
+  assignmentID (Stringm, required) the id of the assignment
+  workerID (String, required): The id of the worker
+  submissionTime (Number, required):  The unix time stamp of the time at which work was submitted
+  worker (UserData, required): The basic information about the user who created the work
+}
+
+UserData {
+  userID (String, required): The id of the user
+  displayName (String, required): The user's displayName
+  identicon (String, required): The URL to the users icon
+}
+
+
+```
+
+example,
+```json5
+{
+  assignmentID: "0000000000000000000000000000000000000000000000000000000000000000",
+  workerID: "0000000000000000000000000000000000000000000000000000000000000004",
+  reviewerID: "0000000000000000000000000000000000000000000000000000000000000000",
+  comment: null,
+  submissionTime: null,
+  grades: [],
+  critiques: [],
+  reviewer: {
+    userID: "0000000000000000000000000000000000000000000000000000000000000000",
+    displayName: "Name 0",
+    identicon: "/icons/FF6F00.png"
+  },
+  work: {
+    worker: {
+      userID: "0000000000000000000000000000000000000000000000000000000000000004",
+      displayName: "Name 4",
+      identicon: "/icons/F57F17.png"
+    },
+    assignmentID: "0000000000000000000000000000000000000000000000000000000000000000",
+    workerID: "0000000000000000000000000000000000000000000000000000000000000004",
+    submissionTime: "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}
+```
+
+#### `Forbidden` 403 - Invalid authentication token / Insufficient Permissions
+##### Response schema
+```
+Error {
+  message (String, required): String explanation of invalid authentication token
+}
+```
+example,
+```json5
+{
+  message: "Invalid authentication token"
+}
+```
+
+#### `Not Found` 404 - No such assignment exists
+##### Response schema
+```
+Error {
+  message (String, required): String explanation
+}
+```
+example,
+```json5
+{
+  message: "No such assignment exists"
+}
+```
+
+#### `Bad Request` 400 - The request was invalid
+##### Response schema
+```
+Error {
+  message (String, optional): Explanation of the error
+}
+```
+example,
+```json5
+{
+  message: "assignmentID must be of type string"
+}
+```
+
+---
+
+## `POST` `/critiques`
+This endpoint is for accepting or rejecting critiques.
+
+### Parameters
+
+Parameter | Value | Data Type | Description | Parameter Type
+---|---|---|---|---
+token | Required | Token | Proves that the request is made by the user | Headers
+assignmentID | Required | String | The id of the assignment, part of key pointing to the critiqued grade | Body
+workerID | Optional | String | The id of the worker, part of key pointing to the critiqued grade | Body
+reviewerID | Optional | String | The id of the reviewer, part of key pointing to the critiqued grade | Body
+criticID | Optional | String | The id of the critic, part of key pointing to the critiqued grade | Body
+categoryID | Optional | String | The id of the category, part of key pointing to the critiqued grade | Body
+criteriaID | Optional | String | The id of the criteria, part of key pointing to the critiqued grade | Body
+state | Optional | Number | The new state of the critiqued grade, either 2 or 3 (accept or reject) | Body
+
+Example Body:
+```json5
+{
+  assignmentID: "0000000000000000000000000000000000000000000000000000000000000002",
+  workerID: "0000000000000000000000000000000000000000000000000000000000000001",
+  reviewerID: "0000000000000000000000000000000000000000000000000000000000000000",
+  criticID: "0000000000000000000000000000000000000000000000000000000000000003",
+  categoryID: "0000000000000000000000000000000000000000000000000000000000000000",
+  criteriaID: "0000000000000000000000000000000000000000000000000000000000000001",
+  state: 2
+}  
+```
+
+### Responses
+
+#### `Success` 200  - Successfully updated critiqued grades state
+##### Response schema
+Empty Response
+
+#### `Forbidden` 403 - Invalid authentication token / Insufficient Permissions
+##### Response schema
+```
+Error {
+  message (String, required): String explanation of invalid authentication token
+}
+```
+example,
+```json5
+{
+  message: "Invalid authentication token"
+}
+```
+
+#### `Not Found` 404 - No such critiqued grade exists
+##### Response schema
+```
+Error {
+  message (String, required): String explanation
+}
+```
+example,
+```json5
+{
+  message: "No such critiqued grade exists"
+}
+```
+
+#### `Bad Request` 400 - The request was invalid
+##### Response schema
+```
+Error {
+  message (String, optional): Explanation of the error
+}
+```
+example,
+```json5
+{
+  message: "assignmentID must be of type string"
+}
+```
+
+## `POST` `/work`
+This endpoint is for submitting work.  It allows a user to submit the piece of work associated with the work relation.
+
+### Parameters
+
+Parameter | Value | Data Type | Description | Parameter Type
+---|---|---|---|---
+token | Required | Token | Proves that the request is made by the user | Headers
+assignmentID | Required | String | The id of the assignment, part of key pointing to the critiqued grade | Body
+workerID | Optional | String | The id of the worker, part of key pointing to the critiqued grade | Body
+
+
+### Responses
+
+#### `Success` 200  - Successfully uploaded work
+##### Response schema
+Blob contains requested file
+
+#### `Forbidden` 403 - Invalid authentication token / Insufficient Permissions
+##### Response schema
+```
+Error {
+  message (String, required): String explanation of invalid authentication token
+}
+```
+example,
+```json5
+{
+  message: "Invalid authentication token"
+}
+```
+
+#### `Not Found` 404 - No such work exists
+Notably this can also happen when there is a database inconsistency, in such case no message is returned.
+##### Response schema
+```
+Error {
+  message (String, required): String explanation
+}
+```
+example,
+```json5
+{
+  message: "No such work exists"
+}
+```
+
+#### `Bad Request` 400 - The request was invalid
+##### Response schema
+```
+Error {
+  message (String, optional): Explanation of the error
+}
+```
+example,
+```json5
+{
+  message: "The submitted file must be a zip file"
+}
+```
+
+## `GET` `/work`
+This endpoint is for downloading work. It behaves like a regular GET endpoint which returns a file, other than that it
+expects a auth token header.  The file that is uploaded must be a zip file.
+
+### Parameters
+
+Parameter | Value | Data Type | Description | Parameter Type
+---|---|---|---|---
+token | Required | Token | Proves that the request is made by the user | Headers
+file | Required | Binary | The uploaded file | Blob
+
+### Responses
+
+#### `Success` 200  - Successfully uploaded work
+##### Response schema
+
+```
+Response {
+  assignmentID (String, requried): The id of the assignment 
+  workerID (String, requried): the id of the worker
+  submissionTime (Number, required):  The unix time stamp of the time at which work was submitted
+}
+```
+example,
+```json5
+{
+  "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+  "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+  "submissionTime": 1556665187650
+}
+```
+
+#### `Forbidden` 403 - Invalid authentication token / Insufficient Permissions
+##### Response schema
+```
+Error {
+  message (String, required): String explanation of invalid authentication token
+}
+```
+example,
+```json5
+{
+  message: "Invalid authentication token"
+}
+```
+
+#### `Not Found` 404 - No such work exists
+##### Response schema
+```
+Error {
+  message (String, required): String explanation
+}
+```
+example,
+```json5
+{
+  message: "No such work exists"
+}
+```
+
+#### `Bad Request` 400 - The request was invalid
+##### Response schema
+```
+Error {
+  message (String, optional): Explanation of the error
+}
+```
+example,
+```json5
+{
+  message: "The submitted file must be a zip file"
+}
+```

@@ -152,9 +152,11 @@
       ]
     },
     "indexPathsRE": [
-      "^\\/review\\/[0-9a-f]{192}$",
-      "/about",
-      "/home"
+      "^\\/assignment\\/[0-9a-f]{64}$",
+      "^\\/review(\\/[0-9a-f]{64}){3}$",
+      "^\\/critique(\\/[0-9a-f]{64}){4}$",
+      "^\\/about$",
+      "^\\/home$"
     ]
   },
   "production": {

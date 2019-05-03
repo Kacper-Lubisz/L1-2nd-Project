@@ -13,147 +13,193 @@
   "development": {
     "users": [
       {
-        "userID": "A",
-        "email": "kacperlubisz@gmail.com",
-        "displayName": "First DisplayName",
-        "identicon": "icons/FF6F00.png",
+        "userID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "email": "youremail@address.here",
+        "displayName": "Name 0",
+        "identicon": "/icons/FF6F00.png",
         "isAdmin": false
       },
       {
-        "userID": "B",
+        "userID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "email": "admin@nothing.com",
+        "displayName": "Name 1",
+        "identicon": "/icons/01579B.png",
+        "isAdmin": true
+      },
+      {
+        "userID": "0000000000000000000000000000000000000000000000000000000000000002",
         "email": "none@gmail.com",
-        "displayName": "Second DisplayName",
-        "identicon": "icons/01579B.png",
+        "displayName": "Name 2",
+        "identicon": "/icons/33691E.png",
         "isAdmin": true
       },
       {
-        "userID": "C",
-        "email": "nothing@gmail.com",
-        "displayName": "Third DisplayName",
-        "identicon": "icons/33691E.png",
+        "userID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "email": "none@gmail.com",
+        "displayName": "Name 3",
+        "identicon": "/icons/880E4F.png",
         "isAdmin": true
       },
       {
-        "userID": "D",
-        "email": "nothing@gmail.com",
-        "displayName": "Fourth DisplayName",
-        "identicon": "icons/0D47A1.png",
+        "userID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "email": "none@gmail.com",
+        "displayName": "Name 4",
+        "identicon": "/icons/F57F17.png",
         "isAdmin": true
       }
     ],
     "work": [
       {
-        "assignmentID": "A",
-        "workerID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
         "submissionTime": 0
       },
       {
-        "assignmentID": "B",
-        "workerID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
         "submissionTime": 0
       },
       {
-        "assignmentID": "C",
-        "workerID": "A",
-        "submissionTime": null
-      },
-      {
-        "assignmentID": "D",
-        "workerID": "A",
-        "submissionTime": null
-      },
-      {
-        "assignmentID": "A",
-        "workerID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
         "submissionTime": 0
       },
       {
-        "assignmentID": "B",
-        "workerID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "submissionTime": null
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
         "submissionTime": 0
       },
       {
-        "assignmentID": "C",
-        "workerID": "B",
-        "submissionTime": null
-      },
-      {
-        "assignmentID": "D",
-        "workerID": "B",
-        "submissionTime": null
-      },
-      {
-        "assignmentID": "A",
-        "workerID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
         "submissionTime": 0
       },
       {
-        "assignmentID": "B",
-        "workerID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
         "submissionTime": 0
       },
       {
-        "assignmentID": "C",
-        "workerID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
         "submissionTime": null
       },
       {
-        "assignmentID": "D",
-        "workerID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
         "submissionTime": null
       },
       {
-        "assignmentID": "B",
-        "workerID": "D",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
         "submissionTime": null
       },
       {
-        "assignmentID": "A",
-        "workerID": "D",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
         "submissionTime": null
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "submissionTime": null
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "submissionTime": 0
       }
     ],
     "assignments": [
       {
-        "assignmentID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
         "title": "Programming Summative",
         "description": "Subject-specific Knowledge:<br>  Interaction between JavaScript programs and the Document Object Model (DOM)<br>  Using control statements to loop and make decisions.<br>  An understanding of the nature of imperative programming in the object-oriented style.<br>  A knowledge and understanding of good programming practice (for example, reuse, documentation and style)<br>        <br>Key Skills:<br>  an ability to recognise and apply the principles of abstraction and modelling<br>  Tasks<br>  Choose a sketch from openprocessing.org<br>  Adapt it into a reusable component using JavaScript classes<br>        <br>Appropriate constructor:<br>  Get and set methods for properties<br>  draw method with optional p5.Renderer as parameter<br>  Build an example page with properties controlled by form controls<br>  Write documentation of your code using Markdown",
         "blurb": "p5 Programming assignment worth 35% of the module",
         "submissionOpen": 1554811200000,
         "submissionClose": 1554984000000,
         "reviewsOpen": 1555070400000,
-        "reviewsClose": 1555675200000,
+        "reviewsClose": 1560945600000,
         "critiquesOpen": 1555502400000,
-        "critiquesClose": 1556107200000,
-        "resultsPublish": 1556193600000
+        "critiquesClose": 1560945600000,
+        "resultsPublish": 1561636800000,
+        "minReviews": 4,
+        "minCritiques": 10
       },
       {
-        "assignmentID": "B",
-        "title": "Project 2",
-        "blurb": "This is basically some code that you have to write",
-        "submissionOpen": 1554734232868,
-        "submissionClose": 1564714197244,
-        "reviewsOpen": 0,
-        "reviewsClose": 0,
-        "critiquesOpen": 0,
-        "critiquesClose": 0,
-        "resultsPublish": 1554824500557
-      },
-      {
-        "assignmentID": "C",
-        "title": "Project 3",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "title": "Project 1",
+        "description": "Some words",
         "blurb": "This is basically some code that you have to write",
         "submissionOpen": 1554824500557,
-        "submissionClose": 1554824500557,
+        "submissionClose": 2554824500557,
         "reviewsOpen": 1554824500557,
         "reviewsClose": 2554824500557,
         "critiquesOpen": 1554824500557,
         "critiquesClose": 2554824500557,
-        "resultsPublish": 2554824500557
+        "resultsPublish": 2554824500557,
+        "minReviews": 4,
+        "minCritiques": 10
       },
       {
-        "assignmentID": "D",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "title": "Project 2",
+        "description": "Some words",
+        "blurb": "This is basically some code that you have to write",
+        "submissionOpen": 1554824500557,
+        "submissionClose": 1554824500557,
+        "reviewsOpen": 1554824500557,
+        "reviewsClose": 1554824500557,
+        "critiquesOpen": 1554824500557,
+        "critiquesClose": 2554824500557,
+        "resultsPublish": 2554824500557,
+        "minReviews": 4,
+        "minCritiques": 10
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "title": "Project 3",
+        "description": "Some words",
+        "blurb": "This is basically some code that you have to write",
+        "submissionOpen": 1554734232868,
+        "submissionClose": 1554824500557,
+        "reviewsOpen": 0,
+        "reviewsClose": 0,
+        "critiquesOpen": 0,
+        "critiquesClose": 0,
+        "resultsPublish": 1554824500557,
+        "minReviews": 4,
+        "minCritiques": 10
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000004",
         "title": "Project 4",
+        "description": "Some words",
         "blurb": "This is basically some code that you have to write",
         "submissionOpen": 1554824500557,
         "submissionClose": 2554824500557,
@@ -161,55 +207,100 @@
         "reviewsClose": 2554824500557,
         "critiquesOpen": 2554824500557,
         "critiquesClose": 2554824500557,
-        "resultsPublish": 2554824500557
+        "resultsPublish": 2554824500557,
+        "minReviews": 4,
+        "minCritiques": 10
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000005",
+        "title": "Secret Project",
+        "description": "Some words",
+        "blurb": "This project is only used in tests",
+        "submissionOpen": 1554824500557,
+        "submissionClose": 2554824500557,
+        "reviewsOpen": 1554824500557,
+        "reviewsClose": 2554824500557,
+        "critiquesOpen": 1554824500557,
+        "critiquesClose": 2554824500557,
+        "resultsPublish": 2554824500557,
+        "minReviews": 4,
+        "minCritiques": 10
       }
     ],
     "markingCategories": [
       {
-        "assignmentID": "A",
-        "categoryID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
         "title": "Usability of code",
         "description": "This is all about how reusable your code is",
         "weight": 1
       },
       {
-        "assignmentID": "A",
-        "categoryID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
         "title": "Development of Original",
         "description": "All about how much you improved the original code",
         "weight": 1
       },
       {
-        "assignmentID": "A",
-        "categoryID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
         "title": "Quality of Example",
         "description": "This is about gow good your example was in showcasing your finished code",
         "weight": 1
       },
       {
-        "assignmentID": "A",
-        "categoryID": "D",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
         "title": "Quality Documentation",
         "description": "This is all about how well documented your code is",
         "weight": 1
       },
       {
-        "assignmentID": "A",
-        "categoryID": "E",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
         "title": "Code Quality",
         "description": "This is about how good your code is",
         "weight": 1
       },
       {
-        "assignmentID": "B",
-        "categoryID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
         "title": "First Category",
         "description": "Some words 1",
         "weight": 1
       },
       {
-        "assignmentID": "B",
-        "categoryID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "title": "Second Category",
+        "description": "This is about how good your code is",
+        "weight": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "title": "First Category",
+        "description": "Some words 1",
+        "weight": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "title": "Second Category",
+        "description": "This is about how good your code is",
+        "weight": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "title": "First Category",
+        "description": "Some words 1",
+        "weight": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
         "title": "Second Category",
         "description": "This is about how good your code is",
         "weight": 1
@@ -217,185 +308,249 @@
     ],
     "markingCriteria": [
       {
-        "assignmentID": "A",
-        "categoryID": "A",
-        "criteriaID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
         "weight": 1,
         "subtitle": "Appropriate Parameterisation",
         "description": "This is for the quality of the usability of the parameterisation.  It's more about making parameterisation that is easy to work with rather than good for the customisation of component"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "A",
-        "criteriaID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
         "weight": 1,
         "subtitle": "Encapsulation",
         "description": "The quality of the abstraction of the class.  This means appropriate private fields and appropriate methods to control them safely."
       },
       {
-        "assignmentID": "A",
-        "categoryID": "A",
-        "criteriaID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
         "weight": 1,
         "subtitle": "Useful Methods (Encapsulation of Methods)",
         "description": "This is the quality of the methods that the component has and how easy it is to interact with"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "B",
-        "criteriaID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
         "weight": 1,
         "subtitle": "Original Code was Submitted",
         "description": "For this criteria 100% is to be given if the original code was submitted and 0% otherwise"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "B",
-        "criteriaID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
         "weight": 1,
         "subtitle": "Refactored to Class",
         "description": "This criteria is for refactoring the original work into a class.  This is not only the quality of the abstraction of the submitted class but also the difference from the original (if the original is perfectly abstract then this criteria isn't met)"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "B",
-        "criteriaID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
         "weight": 1,
         "subtitle": "Parameterisation",
         "description": "This criteria is about how well the finished code is parameterised.  If there are a lot of parameters that the user (programmer implementing the code) can control to make meaningful changes to the component"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "B",
-        "criteriaID": "D",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000003",
         "weight": 1,
         "subtitle": "Extending Scope",
         "description": "This criteria is about how much was done to add to the component.  If the component is identical in function to the original then  0%.  Subjectively, if work is done to add meaningful feathers(not trivial implementation) the work should be awarded a good mark"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "C",
-        "criteriaID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
         "weight": 1,
         "subtitle": "Valid HTML",
         "description": "The code is to be put through a HTML validator, and then given a mark based on the number of errors.  The marker ought to read through the errors that exist to confirm that they are in fact avoidable"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "C",
-        "criteriaID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
         "weight": 1,
         "subtitle": "Appropriate Instructions",
         "description": "This is a basic user experience criteria, whether the example has explanations giving a user critical information on the user of the component"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "C",
-        "criteriaID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
         "weight": 1,
         "subtitle": "Appropriate Controls",
         "description": "The example page has appropriate components to control the component"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "D",
-        "criteriaID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
         "weight": 1,
         "subtitle": "Block Documentation",
         "description": "All methods have jsDoc comments explaining their the role of the method, its parameters and return"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "D",
-        "criteriaID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
         "weight": 1,
         "subtitle": "Explanation of example",
         "description": "The implementation of the example is explained"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "D",
-        "criteriaID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
         "weight": 1,
         "subtitle": "Licences",
         "description": "The source of original code and any code that was used is acknowledged"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "E",
-        "criteriaID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
         "weight": 1,
         "subtitle": "ESLint",
         "description": "This criteria is about how well the code does in ESLint."
       },
       {
-        "assignmentID": "A",
-        "categoryID": "E",
-        "criteriaID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
         "weight": 1,
         "subtitle": "Possible Errors",
         "description": "This is a negative marking criteria for any issues (potentially unsafe code) that can be found"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "E",
-        "criteriaID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
         "weight": 1,
         "subtitle": "Best Practices",
         "description": "Check if there exists any needlessly slow or awful code."
       },
       {
-        "assignmentID": "A",
-        "categoryID": "E",
-        "criteriaID": "D",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000003",
         "weight": 1,
         "subtitle": "Variables",
         "description": "If the variable identifiers are meaningful"
       },
       {
-        "assignmentID": "A",
-        "categoryID": "E",
-        "criteriaID": "E",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000004",
         "weight": 1,
         "subtitle": "Style",
         "description": "This is to do with the code style.  This means the formatting that doesn't affect how the code runs."
       },
       {
-        "assignmentID": "A",
-        "categoryID": "E",
-        "criteriaID": "F",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000005",
         "weight": 1,
         "subtitle": "ECMScript 6",
         "description": "If the ECMScript 6 syntax was used over older, still valid, js"
       },
       {
-        "assignmentID": "B",
-        "categoryID": "A",
-        "criteriaID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
         "weight": 1,
         "subtitle": "First Criteria",
         "description": "Some words 1"
       },
       {
-        "assignmentID": "B",
-        "categoryID": "A",
-        "criteriaID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
         "weight": 1,
         "subtitle": "Second Criteria",
         "description": "Some words 2"
       },
       {
-        "assignmentID": "B",
-        "categoryID": "B",
-        "criteriaID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
         "weight": 1,
         "subtitle": "First Criteria",
         "description": "Some words 1"
       },
       {
-        "assignmentID": "B",
-        "categoryID": "B",
-        "criteriaID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "weight": 1,
+        "subtitle": "Second Criteria",
+        "description": "Some words 2"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "weight": 1,
+        "subtitle": "First Criteria",
+        "description": "Some words 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "weight": 1,
+        "subtitle": "Second Criteria",
+        "description": "Some words 2"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "weight": 1,
+        "subtitle": "First Criteria",
+        "description": "Some words 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "weight": 1,
+        "subtitle": "Second Criteria",
+        "description": "Some words 2"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "weight": 1,
+        "subtitle": "First Criteria",
+        "description": "Some words 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "weight": 1,
+        "subtitle": "Second Criteria",
+        "description": "Some words 2"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "weight": 1,
+        "subtitle": "First Criteria",
+        "description": "Some words 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
         "weight": 1,
         "subtitle": "Second Criteria",
         "description": "Some words 2"
@@ -403,160 +558,1559 @@
     ],
     "reviews": [
       {
-        "assignmentID": "A",
-        "workerID": "D",
-        "reviewerID": "B",
-        "comment": "generally poor, the meme needs more work",
-        "submissionTime": 0
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "comment": "comment 1",
+        "submissionTime": null
       },
       {
-        "assignmentID": "A",
-        "workerID": "D",
-        "reviewerID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "comment": "comment 1",
+        "submissionTime": null
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "comment": "comment 1",
+        "submissionTime": null
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "comment": "comment 1",
+        "submissionTime": null
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
         "comment": "comment 2",
         "submissionTime": 0
       },
       {
-        "assignmentID": "A",
-        "workerID": "B",
-        "reviewerID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
         "comment": "comment 3",
-        "submissionTime": 0
+        "submissionTime": null
       },
       {
-        "assignmentID": "A",
-        "workerID": "B",
-        "reviewerID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
         "comment": "comment 4",
         "submissionTime": 0
       },
       {
-        "assignmentID": "A",
-        "workerID": "C",
-        "reviewerID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
         "comment": "comment 5",
         "submissionTime": 0
       },
       {
-        "assignmentID": "A",
-        "workerID": "C",
-        "reviewerID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
         "comment": "comment 6",
         "submissionTime": 0
       },
       {
-        "assignmentID": "B",
-        "workerID": "D",
-        "reviewerID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
         "comment": "comment 7",
-        "submissionTime": 0
+        "submissionTime": null
       },
       {
-        "assignmentID": "B",
-        "workerID": "D",
-        "reviewerID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
         "comment": "comment 8",
         "submissionTime": 0
       },
       {
-        "assignmentID": "B",
-        "workerID": "B",
-        "reviewerID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
         "comment": "comment 9",
         "submissionTime": 0
       },
       {
-        "assignmentID": "B",
-        "workerID": "B",
-        "reviewerID": "C",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
         "comment": "comment 10",
         "submissionTime": 0
       },
       {
-        "assignmentID": "B",
-        "workerID": "C",
-        "reviewerID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
         "comment": "comment 11",
         "submissionTime": 0
       },
       {
-        "assignmentID": "B",
-        "workerID": "C",
-        "reviewerID": "B",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
         "comment": "comment 12",
         "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "comment": "comment 4",
+        "submissionTime": null
       }
     ],
     "grades": [
       {
-        "assignmentID": "A",
-        "workerID": "D",
-        "reviewerID": "B",
-        "criteriaID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.8,
+        "comment": "comment 2"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 3"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.8,
+        "comment": "comment 4"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.8,
+        "comment": "comment 2"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 3"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.8,
+        "comment": "comment 4"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "comment 2"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "mark": 0.5,
+        "comment": "comment 3"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 4"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "comment 5"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "mark": 0.5,
+        "comment": "comment 6"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "mark": 0.5,
+        "comment": "comment 7"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 8"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "comment 9"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "mark": 0.5,
+        "comment": "comment 10"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 11"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "comment 12"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "mark": 0.5,
+        "comment": "comment 13"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 14"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "comment 15"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "mark": 0.5,
+        "comment": "comment 16"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "mark": 0.5,
+        "comment": "comment 17"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "mark": 0.5,
+        "comment": "comment 18"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000005",
+        "mark": 0.5,
+        "comment": "comment 19"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "comment 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "comment 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "comment 2"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "mark": 0.5,
+        "comment": "comment 3"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 4"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "comment 5"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "mark": 0.5,
+        "comment": "comment 6"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "mark": 0.5,
+        "comment": "comment 7"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 8"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "comment 9"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "mark": 0.5,
+        "comment": "comment 10"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 11"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "comment 12"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "mark": 0.5,
+        "comment": "comment 13"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "comment 14"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "comment 15"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "mark": 0.5,
+        "comment": "comment 16"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "mark": 0.5,
+        "comment": "comment 17"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "mark": 0.5,
+        "comment": "comment 18"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000005",
+        "mark": 0.5,
+        "comment": "comment 19"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "some comment here B"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "some comment here B"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "some comment here C"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "some comment here D"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "some comment here B"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.5,
+        "comment": "some comment here B"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "some comment here C"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.5,
+        "comment": "some comment here D"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.05,
+        "comment": "some comment here 5"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.50,
+        "comment": "some comment here 1"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
         "mark": 0.20,
-        "comment": "legit 20 serious warnings and 100 minor ones, no effort"
+        "comment": "some comment here 2"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.20,
+        "comment": "some comment here 3"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.50,
+        "comment": "some comment here 4"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.50,
+        "comment": "some comment here 6"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.50,
+        "comment": "some comment here 7"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.50,
+        "comment": "some comment here 8"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "mark": 0.50,
+        "comment": "some comment here 7"
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "mark": 0.50,
+        "comment": "some comment here 8"
       }
     ],
     "critiques": [
       {
-        "assignmentID": "A",
-        "workerID": "D",
-        "reviewerID": "B",
-        "criticID": "C",
-        "comment": "Poor review",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
         "submissionTime": null
       },
       {
-        "assignmentID": "A",
-        "workerID": "D",
-        "reviewerID": "C",
-        "criticID": "B",
-        "comment": "Poor review",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
         "submissionTime": null
       },
       {
-        "assignmentID": "A",
-        "workerID": "B",
-        "reviewerID": "A",
-        "criticID": "C",
-        "comment": "Poor review",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
         "submissionTime": null
       },
       {
-        "assignmentID": "A",
-        "workerID": "B",
-        "reviewerID": "C",
-        "criticID": "A",
-        "comment": "Poor review",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "submissionTime": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000002",
         "submissionTime": null
       },
       {
-        "assignmentID": "A",
-        "workerID": "C",
-        "reviewerID": "A",
-        "criticID": "B",
-        "comment": "Poor review",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000001",
         "submissionTime": null
       },
       {
-        "assignmentID": "A",
-        "workerID": "C",
-        "reviewerID": "B",
-        "criticID": "A",
-        "comment": "Poor review",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "submissionTime": null
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000001",
         "submissionTime": null
       }
     ],
     "critiquedGrades": [
       {
-        "assignmentID": "A",
-        "workerID": "D",
-        "reviewerID": "B",
-        "criticID": "C",
-        "criteriaID": "A",
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.4,
+        "comment": "comment 1",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 1,
+        "comment": "comment 2",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.5,
+        "comment": "comment 3",
+        "state": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.8,
+        "comment": "comment 4",
+        "state": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 1,
+        "comment": "comment 1",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 1,
+        "comment": "comment 2",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 1,
+        "comment": "comment 3",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 1,
+        "comment": "comment 4",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.2,
+        "comment": "comment 1",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.2,
+        "comment": "comment 2",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.2,
+        "comment": "comment 3",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.2,
+        "comment": "comment 4",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.5,
+        "comment": "comment 1",
+        "state": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.8,
+        "comment": "comment 2",
+        "state": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.5,
+        "comment": "comment 3",
+        "state": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.8,
+        "comment": "comment 4",
+        "state": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.5,
+        "comment": "comment 1",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.5,
+        "comment": "comment 2",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "proposedMark": 0.5,
+        "comment": "comment 3",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.5,
+        "comment": "comment 4",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.5,
+        "comment": "comment 5",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "proposedMark": 0.5,
+        "comment": "comment 6",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "proposedMark": 0.5,
+        "comment": "comment 7",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.5,
+        "comment": "comment 8",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.5,
+        "comment": "comment 9",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "proposedMark": 0.5,
+        "comment": "comment 10",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.5,
+        "comment": "comment 11",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.5,
+        "comment": "comment 12",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "proposedMark": 0.5,
+        "comment": "comment 13",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.5,
+        "comment": "comment 14",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.5,
+        "comment": "comment 15",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "proposedMark": 0.5,
+        "comment": "comment 16",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "proposedMark": 0.5,
+        "comment": "comment 17",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "proposedMark": 0.5,
+        "comment": "comment 18",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000005",
+        "proposedMark": 0.5,
+        "comment": "comment 19",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.5,
+        "comment": "comment 1",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.5,
+        "comment": "comment 2",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "proposedMark": 0.5,
+        "comment": "comment 3",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.5,
+        "comment": "comment 4",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.5,
+        "comment": "comment 5",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "proposedMark": 0.5,
+        "comment": "comment 6",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "proposedMark": 0.5,
+        "comment": "comment 7",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.5,
+        "comment": "comment 8",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.5,
+        "comment": "comment 9",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "proposedMark": 0.5,
+        "comment": "comment 10",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.5,
+        "comment": "comment 11",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.5,
+        "comment": "comment 12",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "proposedMark": 0.5,
+        "comment": "comment 13",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.5,
+        "comment": "comment 14",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.5,
+        "comment": "comment 15",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "proposedMark": 0.5,
+        "comment": "comment 16",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "proposedMark": 0.5,
+        "comment": "comment 17",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "proposedMark": 0.5,
+        "comment": "comment 18",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000005",
+        "proposedMark": 0.5,
+        "comment": "comment 19",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
         "proposedMark": 0.0,
         "comment": "with all those warnings he deserves nothing, no effort!",
         "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.50,
+        "comment": "cGrade 5, agreeing",
+        "state": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.10,
+        "comment": "cGrade 1, disagreeing",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.10,
+        "comment": "cGrade 2, accepted",
+        "state": 2
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000003",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.10,
+        "comment": "cGrade 3, rejected",
+        "state": 3
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.10,
+        "comment": "cGrade 4, disagreeing",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.10,
+        "comment": "cGrade 5, disagreeing",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.10,
+        "comment": "cGrade 6, disagreeing",
+        "state": 1
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000004",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "proposedMark": 0.10,
+        "comment": "cGrade 7, agreeing",
+        "state": 0
+      },
+      {
+        "assignmentID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "workerID": "0000000000000000000000000000000000000000000000000000000000000002",
+        "reviewerID": "0000000000000000000000000000000000000000000000000000000000000001",
+        "criticID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "categoryID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "criteriaID": "0000000000000000000000000000000000000000000000000000000000000000",
+        "proposedMark": 0.0,
+        "comment": "cGrade 0, pending",
+        "state": 0
       }
     ]
   }
