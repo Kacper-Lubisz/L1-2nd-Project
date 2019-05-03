@@ -8,7 +8,7 @@ const app = require('../app');
 const debug = require('debug')(config.appTitle + ':server');
 const http = require('http');
 
-app.set('port', config.port);
+app.set('port', process.env.PORT || config.port);
 
 /**
  * Create HTTP server.
