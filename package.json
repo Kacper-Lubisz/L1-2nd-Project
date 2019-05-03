@@ -16,6 +16,7 @@
     "file_upload": "^1.0.1",
     "google-auth-library": "^3.1.2",
     "http-errors": "~1.6.2",
+    "lodash": "^4.17.11",
     "morgan": "~1.9.0",
     "pngjs-image": "^0.11.7"
   },
